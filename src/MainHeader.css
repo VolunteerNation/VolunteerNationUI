@@ -1,0 +1,27 @@
+.MainHeader {
+	display: flex;
+	flex-flow: column;
+	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSBWFBz8RwKs_atlKjCdSh8jxtkRBZyrC-P5A&usqp=CAU");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 1000px;
+	margin: 0 0;
+	padding: 0 0;
+}
+
+.MainHeader-Menu {
+	margin: 0 0;
+	padding: 0 0;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.MainHeader-Logo {
+}
+
+.MainHeader-Foot {
+	display: flex;
+	flex-grow: 1;
+	justify-content: space-between;
+	align-items: flex-end;
+}
