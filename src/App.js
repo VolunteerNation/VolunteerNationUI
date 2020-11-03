@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MainHeader from './MainHeader.js';
 import SearchBar from './SearchBar.js';
 import HomePageCarousel from './HomePageCarousel.js';
+import BottomNavBar from './BottomNavBar.js';
 import logo from './logo.svg';
 import './App.css';
 import { Divider } from '@material-ui/core';
@@ -36,8 +37,10 @@ class App extends Component {
         <div>
           <HomePageCarousel/>
         </div>
-        <p>Lorem ipsum</p>
-        <div>Navbar</div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem praesentium excepturi perferendis neque obcaecati voluptates, harum, modi reiciendis rerum corporis animi, libero numquam et esse dolorem suscipit hic repellendus molestias!</p>
+        <div>
+          <BottomNavBar/>
+        </div>
       </div>
     )
   }
