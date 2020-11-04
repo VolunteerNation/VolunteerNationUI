@@ -1,10 +1,10 @@
 .MainHeader {
 	display: flex;
 	flex-flow: column;
-	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSBWFBz8RwKs_atlKjCdSh8jxtkRBZyrC-P5A&usqp=CAU");
-	background-size: cover;
+	background-image: url("./volunteer2.png");
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	height: 1000px;
+	height: 100%;
 	margin: 0 0;
 	padding: 0 0;
 }

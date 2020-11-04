@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import HamburgerMenu from './HamburgerMenu.js';
 import './MainHeader.css';
-import logo from './logo.svg';
+import logo from './logo.png';
 
 class MainHeader extends Component {
     render() {
@@ -11,7 +11,7 @@ class MainHeader extends Component {
                 <HamburgerMenu pages = {["Login", "Register"]}/>
             </div>
             <div class="MainHeader-Foot">
-                <span><img src="https://freedomvillages.co.nz/wp-content/uploads/2016/11/placeholder-logo.png" alt="" class="MainHeader-Logo"/></span>
+                <span><img src={logo} alt="" class="MainHeader-Logo"/></span>
                 <span><h2>Subtitle</h2></span>
             </div>
         </div>   
