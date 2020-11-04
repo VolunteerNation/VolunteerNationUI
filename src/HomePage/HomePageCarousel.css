@@ -1,0 +1,24 @@
+.ant-carousel {
+	height: 100%;
+}
+
+.slick-slider {
+	height: 100%;
+}
+
+.HomePageCarousel-Card {
+	height: 100%;
+}
+
+.HomePageCarousel-Content {
+	height: 50vh;
+	color: #fff;
+	line-height: 50vh;
+	text-align: center;
+	background: #364d79;
+}
+
+h3 img {
+	height: 100%;
+	width: 100%;
+}

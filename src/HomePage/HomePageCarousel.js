@@ -1,29 +1,24 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Carousel } from 'antd';
+import './HomePageCarousel.css';
+import tutor from './tutor.jpg';
 
-const contentStyle = {
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
-};
 
 export default function HomePageCarousel() {
   return (
     <Carousel autoplay>
-      <div>
-        <h3 style={contentStyle}>1</h3>
+      <div class='HomePageCarousel-Card'>
+        <h3 class='HomePageCarousel-Content'><img src={tutor} alt=""/></h3>
       </div>
-      <div>
-        <h3 style={contentStyle}>2</h3>
+      <div class='HomePageCarousel-Card'>
+        <h3 class='HomePageCarousel-Content'>2</h3>
       </div>
-      <div>
-        <h3 style={contentStyle}>3</h3>
+      <div class='HomePageCarousel-Card'>
+        <h3 class='HomePageCarousel-Content'>3</h3>
       </div>
-      <div>
-        <h3 style={contentStyle}>4</h3>
+      <div class='HomePageCarousel-Card'>
+        <h3 class='HomePageCarousel-Content'>4</h3>
       </div>
     </Carousel>
   )
