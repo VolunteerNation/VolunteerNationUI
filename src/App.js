@@ -9,7 +9,6 @@ class App extends Component {
         <div class="App">
             <div class="App-HomePage">
                 <HomePage/>
-                <FormData />
             </div>
         </div>
     )
