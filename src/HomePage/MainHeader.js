@@ -8,7 +8,7 @@ class MainHeader extends Component {
       return (
         <div class="MainHeader">
              <div class="MainHeader-Menu">
-                <HamburgerMenu pages = {["Login", "Register"]}/>
+                <HamburgerMenu/>
             </div>
             <div class="MainHeader-Foot">
                 <span><img src={logo} alt="" class="MainHeader-Logo"/></span>
