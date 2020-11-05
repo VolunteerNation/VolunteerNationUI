@@ -15,7 +15,7 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
     wrapper: {
-      marginTop: theme.spacing(8),
+      marginTop: theme.spacing(4),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -58,7 +58,7 @@ export class Registration extends Component {
                     </Typography>
                     <br/>
                     <Breadcrumbs aria-label="breadcrumb">
-                        <Typography variant = "subtitle" color="textPrimary">Details</Typography>
+                        <Typography variant = "subtitle" color="textPrimary"><b>Details</b></Typography>
                         <Typography onClick={this.continue} variant = "subtitle"><i>User Info</i></Typography>
                         <Typography variant = "subtitle"><i>Confirmation</i></Typography>
                     </Breadcrumbs>
