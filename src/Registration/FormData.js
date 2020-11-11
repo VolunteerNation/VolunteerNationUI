@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Registration from './Registration';
 import Confirmation from './Confirmation';
-import UserInfo from './UserInfo';
 
 export class FormData extends Component{
     
@@ -50,18 +49,9 @@ export class FormData extends Component{
 
             case 2:
                 return (
-                    <UserInfo 
-                    nextStep = {this.nextStep}
-                    prevStep = {this.prevStep}
-                    handleInputChange = {this.handleInputChange}
-                    values = {values}
-                    />
-            )
-
-            case 3:
-                return (
                 <Confirmation 
                     prevStep = {this.prevStep}
+                    nextStep = {this.nextStep}
                     handleInputChange = {this.handleInputChange}
                     values = {values}
                     />

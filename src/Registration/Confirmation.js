@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 const styles = theme => ({
     wrapper: {
       textAlign: "center",
-      marginTop: theme.spacing(4),
+      marginTop: theme.spacing(1),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -50,17 +50,10 @@ export class Confirmation extends Component {
           <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div className = {classes.wrapper}>
-                    <Typography component="h1" variant="h4">
+                    <Typography component="h1" variant="h5">
                     Confirm Your Info
                     </Typography>
-                    <br/>
-                    <Breadcrumbs aria-label="breadcrumb">
-                        <Typography variant = "subtitle"><i>Details</i></Typography>
-                        <Typography variant = "subtitle"><i>User Info</i></Typography>
-                        <Typography variant = "subtitle" color = "textPrimary"><b>Confirmation</b></Typography>
-                    </Breadcrumbs>
                     <form className = {classes.form}>
-                        <h3>Personal Details</h3>
                         <Grid container spacing={2}>
                                 <Grid item xs={12} sm = {6}>  
                                     <TextField 

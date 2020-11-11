@@ -2,10 +2,8 @@ import React from 'react';
 import FormDialog from './FormDialog';
 import LoginFormDialog from './LoginFormDialog';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
 
-export default function CustomizedMenus() {
+export default function MenuNav() {
 
   return (
       <Grid container spacing={4}>
