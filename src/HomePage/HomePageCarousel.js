@@ -14,16 +14,24 @@ export default function HomePageCarousel() {
   return (
     <Carousel autoplay>
       <div>
-        <h3 style={contentStyle}>1</h3>
+        <h3 style={contentStyle}>
+          COVID-19 impacts everyone in different ways.
+          </h3>
       </div>
       <div>
-        <h3 style={contentStyle}>2</h3>
+        <h3 style={contentStyle}>
+          VoluneerNation is here to connect you with people who can help you meet these new challenges.
+          </h3>
       </div>
       <div>
-        <h3 style={contentStyle}>3</h3>
+        <h3 style={contentStyle}>
+          Want to help people in your community while maintaining safe social distance?
+        </h3>
       </div>
       <div>
-        <h3 style={contentStyle}>4</h3>
+        <h3 style={contentStyle}>
+        VolunteerNation puts safety first by allowing you to coordinate your volunteering efforts entirely online!
+        </h3>
       </div>
     </Carousel>
   )
