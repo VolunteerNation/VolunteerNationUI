@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
-import HamburgerMenu from './HamburgerMenu.js';
+import MenuNav from './MenuNav';
 import './MainHeader.css';
 import logo from './logo.png';
 
 class MainHeader extends Component {
     render() {
       return (
-        <div className="MainHeader">
-             <div className="MainHeader-Menu">
-                <HamburgerMenu/>
+        <div className ="MainHeader">
+             <div className="MainHeader-Logo">
+             <span><a href="/"><img src={logo} alt="" class="MainHeader-Logo"/></a></span>
+             <div className = "MainHeader-Nav">
+                <MenuNav/>
+             </div>
             </div>
-            <div className="MainHeader-Foot">
-                <span><img src={logo} alt="" className="MainHeader-Logo"/></span>
-                <span><h2>Subtitle</h2></span>
+            <div class="MainHeader-Foot">
+                <span><h2>Help Us, Help You</h2></span>
             </div>
         </div>   
       )
