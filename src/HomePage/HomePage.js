@@ -25,19 +25,19 @@ class HomePage extends Component {
       //     </a>
       //   </header>
       // </div>
-      <div class="HomePage">
-        <div class="HomePage-Header">
+      <div className="HomePage">
+        <div className="HomePage-Header">
           <MainHeader/>
         </div>
-        <h2 class="HomePage-Local">Find Local Opportunities</h2>
-        <div class="HomePage-SearchBar">
+        <h2 className="HomePage-Local">Find Local Opportunities</h2>
+        <div className="HomePage-SearchBar">
           <SearchBar/>
         </div>
-        <div class="HomePage-Carousel">
+        <div className="HomePage-Carousel">
           <HomePageCarousel/>
         </div>
-        <p class="HomePage-Description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem praesentium excepturi perferendis neque obcaecati voluptates, harum, modi reiciendis rerum corporis animi, libero numquam et esse dolorem suscipit hic repellendus molestias!</p>
-        <div class="HomePage-BottomNav">
+        <p className="HomePage-Description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem praesentium excepturi perferendis neque obcaecati voluptates, harum, modi reiciendis rerum corporis animi, libero numquam et esse dolorem suscipit hic repellendus molestias!</p>
+        <div className="HomePage-BottomNav">
           <BottomNavBar/>
         </div>
       </div>

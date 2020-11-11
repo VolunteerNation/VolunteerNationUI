@@ -17,6 +17,12 @@
 }
 
 .MainHeader-Logo {
+	padding: 5px;
+}
+
+.MainHeader-Nav {
+	float: right;
+	padding: 35px;
 }
 
 .MainHeader-Foot {

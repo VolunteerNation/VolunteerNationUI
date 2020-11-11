@@ -21,14 +21,12 @@
 }
 
 .HomePage-Carousel {
-	height: 50%;
-	margin: 20px auto;
-	width: 50%;
 }
 
 .HomePage-Description {
 	text-align: center;
 	padding: 0 25%;
+	/* width: 50%; */
 }
 
 .HomePage-BottomNav {
