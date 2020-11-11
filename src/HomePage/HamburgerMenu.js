@@ -1,22 +1,17 @@
 import React from 'react';
+import FormDialog from './FormDialog';
 import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import './HamburgerMenu.css';
 
 const StyledMenu = withStyles({
   paper: {
     border: '1px solid #d3d4d5',
   },
-})
-((props) => (
+})((props) => (
   <Menu
     elevation={0}
     getContentAnchorEl={null}
@@ -43,25 +38,36 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
-export default function CustomizedMenus(props) {
+export default function CustomizedMenus() {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+    handleDialogOpen();
   };
 
   const handleClose = () => {
     setAnchorEl(null);
   };
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleDialogOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <div class="HamburgerMenu">
+    <div>
       <Button
+        disableElevation
         aria-controls="customized-menu"
         aria-haspopup="true"
         variant="contained"
-        color="primary"
         onClick={handleClick}
       >
         <MenuIcon/>
@@ -73,11 +79,12 @@ export default function CustomizedMenus(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        {props.pages.map(page => 
-          <StyledMenuItem>
-            <ListItemText primary = {page} />
-          </StyledMenuItem>
-        )}
+        <StyledMenuItem>
+          <FormDialog/>
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <ListItemText onClick = {handleClose} primary="Login" />
+        </StyledMenuItem>
       </StyledMenu>
     </div>
   );

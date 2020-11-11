@@ -5,8 +5,8 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-        <div class="App">
-            <div class="App-HomePage">
+        <div className="App">
+            <div className="App-HomePage">
                 <HomePage/>
             </div>
         </div>

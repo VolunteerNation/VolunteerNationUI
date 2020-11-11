@@ -6,12 +6,12 @@ import logo from './logo.png';
 class MainHeader extends Component {
     render() {
       return (
-        <div class="MainHeader">
-             <div class="MainHeader-Menu">
-                <HamburgerMenu pages = {["Login", "Register"]}/>
+        <div className="MainHeader">
+             <div className="MainHeader-Menu">
+                <HamburgerMenu/>
             </div>
-            <div class="MainHeader-Foot">
-                <span><img src={logo} alt="" class="MainHeader-Logo"/></span>
+            <div className="MainHeader-Foot">
+                <span><img src={logo} alt="" className="MainHeader-Logo"/></span>
                 <span><h2>Subtitle</h2></span>
             </div>
         </div>   
