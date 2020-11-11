@@ -7,7 +7,7 @@ const contentStyle = {
   color: '#fff',
   lineHeight: '160px',
   textAlign: 'center',
-  background: '#364d79',
+  background: '#7ECCCC',
 };
 
 export default function HomePageCarousel() {
@@ -15,7 +15,7 @@ export default function HomePageCarousel() {
     <Carousel autoplay>
       <div>
         <h3 style={contentStyle}>
-          COVID-19 impacts everyone in different ways.
+          COVID-19 has impacted everyone differently.
           </h3>
       </div>
       <div>

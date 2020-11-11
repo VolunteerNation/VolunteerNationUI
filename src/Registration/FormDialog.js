@@ -1,8 +1,7 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { withStyles } from '@material-ui/core/styles';
+import FormData from './FormData';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -10,7 +9,7 @@ import Dialog from '@material-ui/core/Dialog';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import LoginForm from '../Login/LoginForm';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = (theme) => ({
   root: {
@@ -68,8 +67,8 @@ export default function FormDialog() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen('body')}>
-      Login
+      <Button variant="contained" color="secondary" onClick={handleClickOpen('body')}>
+      Register
       </Button>
       <Dialog 
       scroll={scroll}
@@ -78,11 +77,12 @@ export default function FormDialog() {
       aria-labelledby="form-dialog-title" 
       TransitionComponent={Transition}>
 
-        <DialogTitle onClose={handleClose}><div><Typography component="h1" variant="h5">Login</Typography></div></DialogTitle>
+        <DialogTitle onClose={handleClose}><div>
+        <Typography component="h1" variant="h5">Sign-Up</Typography></div></DialogTitle>
         <DialogContent dividers>
         <Typography gutterBottom>
         </Typography>
-        <LoginForm/>
+        <FormData/>
         </DialogContent>
       </Dialog>
     </div>

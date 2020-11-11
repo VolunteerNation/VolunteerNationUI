@@ -5,19 +5,22 @@
 }
 
 .HomePage-Header {
-	height: 50%;
 	margin: 0 0;
 	padding: 0 0;
 }
 
 .HomePage-Local {
-	margin: 20px auto;
 	text-align: center;
 }
 
 .HomePage-SearchBar {
 	display: flex;
+	margin: 150px auto;
 	justify-content: center;
+	border-radius: 25px;
+	background: #B6E8E8;
+	padding: 20px;
+	align-items: center;
 }
 
 .HomePage-Carousel {
@@ -32,4 +35,27 @@
 .HomePage-BottomNav {
 	display: flex;
 	justify-content: center;
+}
+
+.MainHeader {
+	display: flex;
+	flex-flow: column;
+	background-image: url("./volunteer2.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	margin: 0 0;
+	padding: 0 0;
+}
+
+.MainHeader-Container {
+	background-color: #318F8F;
+}
+
+.MainHeader-Logo {
+	padding: 4px;
+}
+
+.MainHeader-Nav {
+	float: right;
+	padding: 35px;
 }

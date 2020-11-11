@@ -1,6 +1,6 @@
 import React from 'react';
-import FormDialog from './FormDialog';
-import LoginFormDialog from './LoginFormDialog';
+import FormDialog from '../Registration/FormDialog';
+import LoginFormDialog from '../Login/LoginFormDialog';
 import Grid from '@material-ui/core/Grid';
 
 export default function MenuNav() {
