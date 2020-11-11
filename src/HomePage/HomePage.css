@@ -1,61 +1,51 @@
-.HomePage {
-	height: 100%;
-	margin: 0 0;
-	padding: 0 0;
-}
-
 .HomePage-Header {
-	margin: 0 0;
-	padding: 0 0;
+  margin-bottom: 10px;
+  padding: 0 0;
 }
 
 .HomePage-Local {
-	text-align: center;
+  text-align: center;
 }
 
 .HomePage-SearchBar {
-	display: flex;
-	margin: 150px auto;
-	justify-content: center;
-	border-radius: 25px;
-	background: #B6E8E8;
-	padding: 20px;
-	align-items: center;
-}
-
-.HomePage-Carousel {
+  display: flex;
+  margin: 150px auto;
+  justify-content: center;
+  border-radius: 25px;
+  background: #b6e8e8;
+  padding: 20px;
+  align-items: center;
 }
 
 .HomePage-Description {
-	text-align: center;
-	padding: 0 25%;
-	/* width: 50%; */
+  text-align: center;
+  padding: 0 25%;
 }
 
 .HomePage-BottomNav {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .MainHeader {
-	display: flex;
-	flex-flow: column;
-	background-image: url("./volunteer2.png");
-	background-size: 100%;
-	background-repeat: no-repeat;
-	margin: 0 0;
-	padding: 0 0;
+  display: flex;
+  flex-flow: column;
+  background-image: url("./volunteer2.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 0 0;
+  padding: 0 0;
 }
 
 .MainHeader-Container {
-	background-color: #318F8F;
+  background-color: #318f8f;
 }
 
 .MainHeader-Logo {
-	padding: 4px;
+  padding: 4px;
 }
 
 .MainHeader-Nav {
-	float: right;
-	padding: 35px;
+  float: right;
+  padding: 35px;
 }
