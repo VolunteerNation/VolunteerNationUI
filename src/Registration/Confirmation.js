@@ -88,6 +88,7 @@ export class Confirmation extends Component {
                   variant = "contained"
                   color = "primary"
                   disableElevation
+                  onClick = {this.continue}
               >Confirm & Submit
               </Button>
               </Grid>

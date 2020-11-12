@@ -34,37 +34,24 @@ export class FormData extends Component{
     }
 
     submitRegistration = () => {
-        // const obj = {
-        //     name: "TestUser10",
-        //     email: "test@test10.com",
-        //     password: "Password1@",
-        //     password2: "Passw"
-        // };
+        const obj = {
+            name: "TestUser10",
+            email: "test@test10.com",
+            password: "Password1@",
+            password2: "Passw"
+        };
 
-        axios.post('https://postman-echo.com/post?test', {test: "test"})
-                .then(response => { 
+        axios.post('https://volunteernation-api.herokuapp.com/vnt_user/register', obj, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => { 
 	        console.log(response)
         })
         .catch(error => {
             console.log(error.response)
         });
-
-        // axios.post('https://volunteernation-api.herokuapp.com/vnt_user/register', {
-        //     name: 'test11',
-        //     email: "test@test11.com", 
-        //     password: 'Password1@',
-        //     password2: "Password1@"
-        // }, {
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // })
-        // .then(response => { 
-	    //     console.log(response)
-        // })
-        // .catch(error => {
-        //     console.log(error.response)
-        // });
     }
 
     render() {
