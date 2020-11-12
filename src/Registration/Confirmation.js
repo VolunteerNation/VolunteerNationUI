@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,10 +15,6 @@ const styles = theme => ({
       flexDirection: 'column',
       alignItems: 'center',
     },
-    avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
-      },
     form: {
       width: '100%',
       marginTop: theme.spacing(3),
@@ -51,7 +46,7 @@ export class Confirmation extends Component {
           <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div className = {classes.wrapper}>
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h5" color = "primary">
                     Confirm Your Info
                     </Typography>
                     <form className = {classes.form}>
@@ -93,7 +88,6 @@ export class Confirmation extends Component {
                   variant = "contained"
                   color = "primary"
                   disableElevation
-                  onClick = {this.continue}
               >Confirm & Submit
               </Button>
               </Grid>
