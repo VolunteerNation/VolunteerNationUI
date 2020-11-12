@@ -111,6 +111,7 @@ export class Registration extends Component {
                                         label="Password"
                                         type="password"
                                         id="password"
+                                        onChange = { handleInputChange ('password') }
                                         InputProps={{
                                             endAdornment: (
                                               <InputAdornment position="end">
@@ -128,6 +129,7 @@ export class Registration extends Component {
                                         label="Confirm Password"
                                         type="password"
                                         id="password"
+                                        onChange = { handleInputChange ('password2') }
                                         autoComplete="current-password"
                                     />
                                 </Grid>

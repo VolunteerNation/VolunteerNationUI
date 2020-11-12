@@ -16,6 +16,8 @@ export class FormData extends Component{
         city: '',
         state: '',
         zipcode: '',
+        password: '',
+        password2: '',
         regsuccess: false,
     };
 
@@ -35,17 +37,15 @@ export class FormData extends Component{
 
     submitRegistration = () => {
         const obj = {
-            name: "TestUser10",
-            email: "test@test10.com",
-            password: "Password1@",
-            password2: "Passw"
+            name: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+            password2: this.state.password
         };
 
-        axios.post('https://volunteernation-api.herokuapp.com/vnt_user/register', obj, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+        console.log(obj);
+
+        axios.post('https://volunteernation-api.herokuapp.com/vnt_user/register', obj)
         .then(response => { 
 	        console.log(response)
         })
