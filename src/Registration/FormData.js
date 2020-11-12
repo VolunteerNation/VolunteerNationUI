@@ -42,7 +42,7 @@ export class FormData extends Component{
         //     password2: "Passw"
         // };
 
-        axios.get('https:volunteernation-api.herokuapp.com/vnt_profile/')
+        axios.post('https://postman-echo.com/post?test', {test: "test"})
                 .then(response => { 
 	        console.log(response)
         })
