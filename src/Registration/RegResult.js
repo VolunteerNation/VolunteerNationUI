@@ -28,13 +28,15 @@ const styles = theme => ({
       justifyContent: "center",
       margin: theme.spacing(3, 0, 2)
     },
+    hidden: {
+        display:'none',
+    }
   });
 
-export class Confirmation extends Component {
+export class RegResult extends Component {
 
     continue = event => {
         event.preventDefault();
-        this.props.submitRegistration();
         this.props.nextStep();
     }
 
@@ -45,14 +47,14 @@ export class Confirmation extends Component {
 
     render() {
         const { classes } = this.props;
-        const { values: { firstname, lastname, email }} = this.props;
+        const { values: { firstname, lastname, email, regsuccess}} = this.props;
 
         return (
           <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div className = {classes.wrapper}>
                     <Typography component="h1" variant="h5">
-                    Confirm Your Info
+                    Registration Submitted
                     </Typography>
                     <form className = {classes.form}>
                         <Grid container spacing={2}>
@@ -89,21 +91,21 @@ export class Confirmation extends Component {
 
               <Grid container spacing = {2}>
               <Grid item xs={12} sm={6}>
-              <Button className = {classes.submit}
+              {/* <Button className = {classes.submit}
                   variant = "contained"
                   color = "primary"
                   disableElevation
                   onClick = {this.continue}
               >Confirm & Submit
-              </Button>
+              </Button> */}
               </Grid>
               <Grid item xs={12} sm={6}>
-              <Button className = {classes.submit}
+              <Button className = {regsuccess ? classes.submit : classes.hidden}
                   variant = "contained"
                   primary = {false}
                   disableElevation
                   onClick = {this.back}
-              >Make Changes
+              >Retry
               </Button>
               </Grid>
               </Grid>
@@ -114,4 +116,4 @@ export class Confirmation extends Component {
     }
 }
 
-export default withStyles ( styles, {withTheme: true}) (Confirmation)
+export default withStyles ( styles, {withTheme: true}) (RegResult)

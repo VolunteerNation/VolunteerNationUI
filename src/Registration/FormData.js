@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Registration from './Registration';
 import Confirmation from './Confirmation';
+import RegResult from './RegResult';
+import axios from 'axios';
 
 export class FormData extends Component{
     
@@ -14,7 +16,8 @@ export class FormData extends Component{
         street: '',
         city: '',
         state: '',
-        zipcode: ''
+        zipcode: '',
+        regsuccess: false,
     };
 
     nextStep = () => {
@@ -29,6 +32,40 @@ export class FormData extends Component{
 
     handleInputChange = input => (event) => {
         this.setState({[input]:event.target.value})
+    }
+
+    submitRegistration = () => {
+        // const obj = {
+        //     name: "TestUser10",
+        //     email: "test@test10.com",
+        //     password: "Password1@",
+        //     password2: "Passw"
+        // };
+
+        axios.get('https:volunteernation-api.herokuapp.com/vnt_profile/')
+                .then(response => { 
+	        console.log(response)
+        })
+        .catch(error => {
+            console.log(error.response)
+        });
+
+        // axios.post('https://volunteernation-api.herokuapp.com/vnt_user/register', {
+        //     name: 'test11',
+        //     email: "test@test11.com", 
+        //     password: 'Password1@',
+        //     password2: "Password1@"
+        // }, {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // })
+        // .then(response => { 
+	    //     console.log(response)
+        // })
+        // .catch(error => {
+        //     console.log(error.response)
+        // });
     }
 
     render() {
@@ -50,6 +87,17 @@ export class FormData extends Component{
             case 2:
                 return (
                 <Confirmation 
+                    prevStep = {this.prevStep}
+                    nextStep = {this.nextStep}
+                    handleInputChange = {this.handleInputChange}
+                    submitRegistration = {this.submitRegistration}
+                    values = {values}
+                    />
+                )
+
+            case 3:
+                return (
+                <RegResult
                     prevStep = {this.prevStep}
                     nextStep = {this.nextStep}
                     handleInputChange = {this.handleInputChange}
