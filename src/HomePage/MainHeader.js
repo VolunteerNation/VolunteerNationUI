@@ -22,10 +22,10 @@ class MainHeader extends Component {
               </Grid>
             </div>
           </div>
-        <div className="HomePage-SearchBar">
-        <h2 className="HomePage-Local">Find Local Opportunities</h2>
-          <SearchBar/>
-        </div>
+          <div className="HomePage-SearchBar">
+          <h2 className="HomePage-Local">Find Local Opportunities</h2>
+            <SearchBar/>
+          </div>
         </div>   
       )
     }

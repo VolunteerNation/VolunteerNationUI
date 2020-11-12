@@ -10,7 +10,6 @@ export class FormData extends Component{
         lastname: '',
         username: '',
         email: '',
-        password: '',
         street: '',
         city: '',
         state: '',
@@ -33,8 +32,8 @@ export class FormData extends Component{
 
     render() {
         const { step } = this.state;
-        const { firstname, lastname, username, email, password, street, city, state, zipcode } = this.state;
-        const values = { firstname, lastname, username, email, password, street, city, state, zipcode };
+        const { firstname, lastname, username, email, street, city, state, zipcode } = this.state;
+        const values = { firstname, lastname, username, email, street, city, state, zipcode };
         
         switch ( step ) {
 

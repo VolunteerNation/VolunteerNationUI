@@ -31,10 +31,10 @@
   display: flex;
   flex-flow: column;
   background-image: url("./volunteer2.png");
-  background-size: 100%;
   background-repeat: no-repeat;
-  margin: 0 0;
-  padding: 0 0;
+  background-size: 100%;
+  background-position: fixed;
+  background-color: #50aaaa;
 }
 
 .MainHeader-Container {

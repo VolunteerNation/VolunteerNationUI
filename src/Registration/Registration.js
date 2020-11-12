@@ -26,6 +26,20 @@ const styles = theme => ({
     },
   });
 
+  /* class PasswordInput extends Component {
+    render() {
+      return <TextField type="password" {...this.props} />;
+    }
+  }
+  
+  PasswordInput.propTypes = {
+    classes: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
+    value: PropTypes.func.isRequired,
+  };
+  
+  PasswordInput = withStyles(styles)(PasswordInput); */
+
 export class Registration extends Component {
 
     continue = event => {
@@ -41,7 +55,7 @@ export class Registration extends Component {
     render() {
         
         const { classes } = this.props;
-        const { values: { firstname, lastname, email, username, password}, handleInputChange } = this.props;
+        const { values: { firstname, lastname, email, username}, handleInputChange } = this.props;
 
         return (
             <Container component="main" maxWidth="xs">
@@ -104,7 +118,6 @@ export class Registration extends Component {
                                             ),
                                           }}
                                         autoComplete="current-password"
-                                        defaultValue = {password}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm = {6}>
