@@ -10,7 +10,7 @@ import Dialog from '@material-ui/core/Dialog';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import LoginForm from './LoginForm';
+import LoginFormData from './LoginFormData';
 
 const styles = (theme) => ({
   root: {
@@ -82,7 +82,7 @@ export default function FormDialog() {
         <DialogContent dividers>
         <Typography gutterBottom>
         </Typography>
-        <LoginForm/>
+        <LoginFormData/>
         </DialogContent>
       </Dialog>
     </div>
