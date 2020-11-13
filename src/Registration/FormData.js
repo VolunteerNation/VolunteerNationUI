@@ -3,6 +3,7 @@ import Registration from './Registration';
 import Confirmation from './Confirmation';
 import RegResult from './RegResult';
 import axios from 'axios';
+import { TokenContext } from '../token-context';
 
 export class FormData extends Component{
     
@@ -18,7 +19,6 @@ export class FormData extends Component{
         zipcode: '',
         password: '',
         password2: '',
-        regsuccess: false,
     };
 
     nextStep = () => {
@@ -32,7 +32,7 @@ export class FormData extends Component{
     }
 
     handleInputChange = input => (event) => {
-        this.setState({[input]:event.target.value})
+        this.setState({[input]:event.target.value});
     }
 
     submitRegistration = () => {
@@ -43,14 +43,15 @@ export class FormData extends Component{
             password2: this.state.password
         };
 
-        console.log(obj);
-
         axios.post('https://volunteernation-api.herokuapp.com/vnt_user/register', obj)
-        .then(response => { 
-	        console.log(response)
+        .then(response => {
+            console.log(response.data);
+            console.log(this.state.username);
+            this.context.handleNewToken(response.data,this.state.username);
         })
         .catch(error => {
-            console.log(error.response)
+            console.log(error.response.data[0]);
+            this.context.handleErrorMessage(error.response.data);
         });
     }
 
@@ -95,5 +96,6 @@ export class FormData extends Component{
         }
     }
 }
+FormData.contextType = TokenContext;
 
 export default FormData

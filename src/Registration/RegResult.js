@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import {TokenContext} from '../token-context';
 
 const styles = theme => ({
     wrapper: {
@@ -47,14 +48,14 @@ export class RegResult extends Component {
 
     render() {
         const { classes } = this.props;
-        const { values: { firstname, lastname, email, regsuccess}} = this.props;
+        const { values: { firstname, lastname, email, regsuccess, responseMessage}} = this.props;
 
         return (
           <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div className = {classes.wrapper}>
                     <Typography component="h1" variant="h5">
-                    Registration Submitted
+                    {this.context.responseMessage}
                     </Typography>
                     <form className = {classes.form}>
                         <Grid container spacing={2}>
@@ -91,16 +92,9 @@ export class RegResult extends Component {
 
               <Grid container spacing = {2}>
               <Grid item xs={12} sm={6}>
-              {/* <Button className = {classes.submit}
-                  variant = "contained"
-                  color = "primary"
-                  disableElevation
-                  onClick = {this.continue}
-              >Confirm & Submit
-              </Button> */}
               </Grid>
               <Grid item xs={12} sm={6}>
-              <Button className = {regsuccess ? classes.submit : classes.hidden}
+              <Button className = {this.context.regsuccess ? classes.hidden : classes.submit}
                   variant = "contained"
                   primary = {false}
                   disableElevation
@@ -115,5 +109,6 @@ export class RegResult extends Component {
         );
     }
 }
+RegResult.contextType = TokenContext;
 
 export default withStyles ( styles, {withTheme: true}) (RegResult)

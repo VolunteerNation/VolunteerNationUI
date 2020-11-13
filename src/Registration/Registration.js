@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Switch from 'react-switch';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
@@ -9,6 +10,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import {TokenContext} from '../token-context';
 
 const styles = theme => ({
     wrapper: {
@@ -24,6 +26,9 @@ const styles = theme => ({
         justifyContent: "center",
       margin: theme.spacing(3, 0, 2)
     },
+    hidden: {
+        display: "none"
+    }
   });
 
   /* class PasswordInput extends Component {
@@ -41,6 +46,9 @@ const styles = theme => ({
   PasswordInput = withStyles(styles)(PasswordInput); */
 
 export class Registration extends Component {
+    state = {
+        checked: false
+    }
 
     continue = event => {
         event.preventDefault();
@@ -52,11 +60,17 @@ export class Registration extends Component {
         this.props.prevStep();
     }
 
+    toggleChecked(checked) {
+        this.setState({ checked });
+    }
+
+    toggleChecked = this.toggleChecked.bind(this);
+
     render() {
         
         const { classes } = this.props;
-        const { values: { firstname, lastname, email, username}, handleInputChange } = this.props;
-
+        const { values: { firstname, lastname, email, username}, handleInputChange} = this.props;
+        
         return (
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
@@ -136,14 +150,20 @@ export class Registration extends Component {
                                 <Typography variant = "subtitle">Password must contain at least one special character and one capital letter.</Typography>
                             
                                 <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={<Checkbox color="secondary" name="age" value="yes" />}
+                                {/* <FormControlLabel
+                                    control={<Checkbox color="secondary" name="age" value="yes"/>}
+                                    onChange = { this.context.swap18(this.context.over18)}
                                     label="Are you over the age of 18?"
                                     required = "true"
-                                />
+                                /> */}
+                                <FormControlLabel
+                                    control={<Switch size="small" checked={this.state.checked} onChange={this.toggleChecked} />}
+                                    label="Are you over the age of 18?"
+                                    labelPlacement="start"
+                                    />
                             </Grid>
                             </Grid>
-                            <Button className = { classes.submit }
+                            <Button className = {this.state.checked ? classes.submit : classes.hidden}
                                 type = "submit"
                                 variant = "contained"
                                 color = "primary"
@@ -159,5 +179,6 @@ export class Registration extends Component {
         );
     }
 }
+Registration.contextType = TokenContext;
 
 export default withStyles ( styles, {withTheme: true}) (Registration);
