@@ -40,7 +40,7 @@ export class FormData extends Component{
             name: this.state.username,
             email: this.state.email,
             password: this.state.password,
-            password2: this.state.password
+            password2: this.state.password2
         };
 
         axios.post('https://volunteernation-api.herokuapp.com/vnt_user/register', obj)
