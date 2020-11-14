@@ -20,6 +20,7 @@
 .HomePage-Description {
   text-align: center;
   padding: 0 25%;
+  margin-top: 10px;
 }
 
 .HomePage-BottomNav {
@@ -48,4 +49,8 @@
 .MainHeader-Nav {
   float: right;
   padding: 35px;
+}
+
+.HomePage-Local {
+  margin-right: 10px;
 }
