@@ -11,25 +11,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {TokenContext} from '../token-context';
 
-// const styles = theme => ({
-//   wrapper: {
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'center',
-//   },
-//   form: {
-//     width: '100%',
-//     marginTop: theme.spacing(3),
-//   },
-//   submit: {
-//       justifyContent: "center",
-//     margin: theme.spacing(3, 0, 2)
-//   },
-//   hidden: {
-//       display: "none"
-//   }
-// });
-
 const styles = theme => ({
   paper: {
     marginTop: theme.spacing(1),
@@ -66,7 +47,7 @@ export class LoginForm extends Component {
 
   render() {
     const { classes } = this.props;
-    const { values: { email }} = this.props;
+    const { values: { email}, handleInputChange } = this.props;
 
     return (
       <Container component="main" maxWidth="xs">
@@ -82,6 +63,7 @@ export class LoginForm extends Component {
               label="Email Address"
               name="email"
               autoComplete="email"
+              onChange = { handleInputChange ('email') }
               autoFocus
             />
             <TextField
@@ -94,6 +76,7 @@ export class LoginForm extends Component {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange = { handleInputChange ('password') }
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

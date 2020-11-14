@@ -6,7 +6,9 @@ class TokenProvider extends React.Component {
       token: null,
       username: null,
       regsuccess: false,
-      responseMessage: "Unknown error.",
+      loginsuccess: false,
+      responseMessage: "Attempting to Register",
+      loginMessage: "Attempting to Login"
     };
   
     handleNewToken = (newToken, newUsername) => {
@@ -17,6 +19,13 @@ class TokenProvider extends React.Component {
       this.setState({responseMessage: msg});
     }
 
+    handleLogin = (token) => {
+      this.setState({token: token})
+      this.setState({loginsuccess: true});
+      let msg = "Login Successful";
+      this.setState({loginMessage: msg});
+    }
+
     handleErrorMessage = (errorList) => {
         if (Array.isArray(errorList)) {
             if (errorList.length > 0) {
@@ -25,11 +34,19 @@ class TokenProvider extends React.Component {
         }
     }
 
+    handleErrorLogin = (error) => {
+      if(error) {
+        this.setState({loginMessage: error.msg});
+      }
+    }
+
     render() {
       return <TokenContext.Provider value={{
         ...this.state,
         handleNewToken: this.handleNewToken,
+        handleLogin: this.handleLogin,
         handleErrorMessage: this.handleErrorMessage,
+        handleErrorLogin: this.handleErrorLogin,
       }}>
         {this.props.children}
       </TokenContext.Provider>

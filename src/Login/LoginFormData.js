@@ -36,13 +36,16 @@ export class LoginFormData extends Component{
         .then(response => {
             console.log(response.data);
             console.log(this.state.email);
-            this.context.handleNewToken(response.data,this.state.email);
+            this.context.handleLogin(response.data);
         })
         .catch(error => {
-            console.log(error.response.data[0]);
-            this.context.handleErrorMessage(error.response.data);
+            console.log(error.response.data);
+            console.log(this.state.email);
+            this.context.handleErrorLogin(error.response.data);
         });
     }
+
+    submitLogin = this.submitLogin.bind(this);
 
     render() {
         const { step } = this.state;
@@ -63,12 +66,7 @@ export class LoginFormData extends Component{
 
             case 2:
                 return (
-                <LoginResult
-                    prevStep = {this.prevStep}
-                    nextStep = {this.nextStep}
-                    handleInputChange = {this.handleInputChange}
-                    values = {values}
-                    />
+                <LoginResult />
                 )
 
             default:

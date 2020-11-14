@@ -35,75 +35,16 @@ const styles = theme => ({
   });
 
 export class LoginResult extends Component {
-
-    continue = event => {
-        event.preventDefault();
-        this.props.nextStep();
-    }
-
-    back = event => {
-        event.preventDefault();
-        this.props.prevStep();
-    }
-
     render() {
         const { classes } = this.props;
-        const { values: { firstname, lastname, email, regsuccess, responseMessage}} = this.props;
 
         return (
           <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <div className = {classes.wrapper}>
                     <Typography component="h1" variant="h5">
-                    {this.context.responseMessage}
+                    {this.context.loginMessage}
                     </Typography>
-                    <form className = {classes.form}>
-                        <Grid container spacing={2}>
-                                <Grid item xs={12} sm = {6}>  
-                                    <TextField 
-                                    disabled
-                                    variant = "filled"
-                                    fullWidth
-                                    label = "First name"
-                                    defaultValue = {firstname}
-                                    />
-                                </Grid>
-
-                                <Grid item xs={12} sm = {6}>  
-                                    <TextField 
-                                    disabled
-                                    variant = "filled"
-                                    fullWidth
-                                    label = "Last name"
-                                    defaultValue = {lastname}
-                                    />
-                                </Grid>
-
-                                <Grid item xs={12}>  
-                                    <TextField 
-                                    disabled
-                                    variant = "filled"
-                                    fullWidth
-                                    label = "E-mail address"
-                                    defaultValue = {email}
-                                    />
-                                </Grid>
-                          </Grid>
-
-              <Grid container spacing = {2}>
-              <Grid item xs={12} sm={6}>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-              <Button className = {this.context.regsuccess ? classes.hidden : classes.submit}
-                  variant = "contained"
-                  primary = {false}
-                  disableElevation
-                  onClick = {this.back}
-              >Retry
-              </Button>
-              </Grid>
-              </Grid>
-        </form>
         </div>
         </Container>
         );
