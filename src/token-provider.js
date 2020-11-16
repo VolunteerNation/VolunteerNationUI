@@ -19,7 +19,7 @@ class TokenProvider extends React.Component {
       this.setState({responseMessage: msg});
     }
 
-    handleLogin = (token) => {
+    handleLogin = (token, callback) => {
       this.setState({token: token})
       this.setState({loginsuccess: true});
       let msg = "Login Successful";

@@ -1,0 +1,37 @@
+.HomePage {
+	height: 100%;
+	margin: 0 0;
+	padding: 0 0;
+}
+
+.HomePage-Header {
+	height: 50%;
+	margin: 0 0;
+	padding: 0 0;
+}
+
+.HomePage-Local {
+	margin: 20px auto;
+	text-align: center;
+}
+
+.HomePage-SearchBar {
+	display: flex;
+	justify-content: center;
+}
+
+.HomePage-Carousel {
+	height: 50%;
+	margin: 20px auto;
+	width: 50%;
+}
+
+.HomePage-Description {
+	text-align: center;
+	padding: 0 25%;
+}
+
+.HomePage-BottomNav {
+	display: flex;
+	justify-content: center;
+}

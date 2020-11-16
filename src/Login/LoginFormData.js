@@ -3,14 +3,26 @@ import LoginForm from './LoginForm';
 import LoginResult from './LoginResult';
 import axios from 'axios';
 import { TokenContext } from '../token-context';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
+
+function LoginSuccess() {
+    const history = useHistory();
+    history.push("/Dashboard");
+    return null;
+}
 
 export class LoginFormData extends Component{
     
-    state = {
-        step: 1,
-        email: '',
-        password: '',
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            step: 1,
+            email: '',
+            password: '',
+            success: false,
+        };
+    }
 
     nextStep = () => {
         const {step} = this.state;
@@ -37,6 +49,7 @@ export class LoginFormData extends Component{
             console.log(response.data);
             console.log(this.state.email);
             this.context.handleLogin(response.data);
+            this.setState({success: true})
         })
         .catch(error => {
             console.log(error.response.data);
@@ -66,7 +79,10 @@ export class LoginFormData extends Component{
 
             case 2:
                 return (
-                <LoginResult />
+                    <div>
+                        <LoginResult />
+                        {this.state.success && <LoginSuccess />}
+                    </div>
                 )
 
             default:
