@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import LoginForm from './LoginForm';
 import LoginResult from './LoginResult';
 import axios from 'axios';
-import { TokenContext } from '../token-context';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {TokenContext} from '../token-context';
 import {useHistory} from 'react-router-dom';
+import {API_host} from "../util";
 
 function LoginSuccess() {
     const history = useHistory();
@@ -44,7 +44,7 @@ export class LoginFormData extends Component{
             password: this.state.password
         };
 
-        axios.post('https://volunteernation-api.herokuapp.com/vnt_user/auth', obj)
+        axios.post(`${API_host}/vnt_user/auth`, obj)
         .then(response => {
             console.log(response.data);
             console.log(this.state.email);
