@@ -3,13 +3,14 @@ import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
+import NewPostForm from './NewPostForm';
 import Typography from '@material-ui/core/Typography';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import { withStyles } from '@material-ui/core/styles';
 
-const styles = (theme) => ({
+const styles = theme => ({
     root: {
       margin: 0,
       padding: theme.spacing(2),
@@ -19,10 +20,6 @@ const styles = (theme) => ({
       right: theme.spacing(1),
       top: theme.spacing(1),
       color: theme.palette.grey[500],
-    },
-    avatar: {
-      margin: theme.spacing(2),
-      backgroundColor: theme.palette.secondary.main,
     },
   });
   
@@ -51,7 +48,8 @@ const styles = (theme) => ({
   });
 
 
-export default function FormDialog() {
+export default function NewPostControl() {
+
     const [open, setOpen] = React.useState(false);
     const [scroll, setScroll] = React.useState('paper');
   
@@ -67,9 +65,11 @@ export default function FormDialog() {
     return (
         <div>
       <Button variant="contained" color="secondary" onClick={handleClickOpen('body')}>
-      Register
+      New Post
       </Button>
       <Dialog 
+      fullWidth={true}
+      maxWidth = {'md'}
       scroll={scroll}
       open={open} 
       onClose={handleClose} 
@@ -77,11 +77,9 @@ export default function FormDialog() {
       TransitionComponent={Transition}>
 
         <DialogTitle onClose={handleClose}><div>
-        <Typography component="h1" variant="h5">Sign-Up</Typography></div></DialogTitle>
+        <Typography component="h1" variant="h5">Create A New Post</Typography></div></DialogTitle>
         <DialogContent dividers>
-        <Typography gutterBottom>
-        </Typography>
-        <FormData/>
+          <NewPostForm/>
         </DialogContent>
       </Dialog>
     </div>

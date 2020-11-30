@@ -31,20 +31,6 @@ const styles = theme => ({
     }
   });
 
-  /* class PasswordInput extends Component {
-    render() {
-      return <TextField type="password" {...this.props} />;
-    }
-  }
-  
-  PasswordInput.propTypes = {
-    classes: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired,
-    value: PropTypes.func.isRequired,
-  };
-  
-  PasswordInput = withStyles(styles)(PasswordInput); */
-
 export class Registration extends Component {
     state = {
         checked: false
