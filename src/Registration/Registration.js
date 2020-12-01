@@ -48,7 +48,6 @@ export class Registration extends Component {
   state = {
     checked: false
   }
-  toggleChecked = this.toggleChecked.bind(this);
 
   continue = event => {
     event.preventDefault();
@@ -60,7 +59,7 @@ export class Registration extends Component {
     this.props.prevStep();
   }
 
-  toggleChecked(checked) {
+  toggleChecked = (checked) => {
     this.setState({checked});
   }
 

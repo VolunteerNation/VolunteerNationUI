@@ -14,8 +14,6 @@ function LoginSuccess() {
 
 export class LoginFormData extends Component {
 
-  submitLogin = this.submitLogin.bind(this);
-
   constructor(props) {
     super(props);
     this.state = {
