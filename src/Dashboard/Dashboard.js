@@ -8,7 +8,7 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <div className="Dashboard-Navbar">
-          <Navbar />
+          <Navbar/>
         </div>
         <div className="Dashboard-Selector">
         </div>
@@ -19,69 +19,69 @@ class Dashboard extends Component {
           <Grid container direction="row" spacing={3} justify="space-even">
             <Grid item sm={6} md={4} lg={3} xl={2}>
               <Card
-                  name = "John Doe"
-                  description = "lorem ipsum"
-                  category = "Tutoring"
-                  city = "Gainesville"
-                  state = "FL"
-                  status = "New"
-                  date = "December 24, 2020"
-                />
+                name="John Doe"
+                description="lorem ipsum"
+                category="Tutoring"
+                city="Gainesville"
+                state="FL"
+                status="New"
+                date="December 24, 2020"
+              />
             </Grid>
             <Grid item sm={6} md={4} lg={3} xl={2}>
               <Card
-                  name = "John Doe"
-                  description = "lorem ipsum"
-                  category = "Tutoring"
-                  city = "Gainesville"
-                  state = "FL"
-                  status = "New"
-                  date = "December 24, 2020"
-                />
+                name="John Doe"
+                description="lorem ipsum"
+                category="Tutoring"
+                city="Gainesville"
+                state="FL"
+                status="New"
+                date="December 24, 2020"
+              />
             </Grid>
             <Grid item sm={6} md={4} lg={3} xl={2}>
               <Card
-                  name = "John Doe"
-                  description = "lorem ipsum"
-                  category = "Tutoring"
-                  city = "Gainesville"
-                  state = "FL"
-                  status = "New"
-                  date = "December 24, 2020"
-                />
+                name="John Doe"
+                description="lorem ipsum"
+                category="Tutoring"
+                city="Gainesville"
+                state="FL"
+                status="New"
+                date="December 24, 2020"
+              />
             </Grid>
             <Grid item sm={6} md={4} lg={3} xl={2}>
               <Card
-                  name = "John Doe"
-                  description = "lorem ipsum"
-                  category = "Tutoring"
-                  city = "Gainesville"
-                  state = "FL"
-                  status = "New"
-                  date = "December 24, 2020"
-                />
+                name="John Doe"
+                description="lorem ipsum"
+                category="Tutoring"
+                city="Gainesville"
+                state="FL"
+                status="New"
+                date="December 24, 2020"
+              />
             </Grid>
             <Grid item sm={6} md={4} lg={3} xl={2}>
               <Card
-                  name = "John Doe"
-                  description = "lorem ipsum"
-                  category = "Tutoring"
-                  city = "Gainesville"
-                  state = "FL"
-                  status = "New"
-                  date = "December 24, 2020"
-                />
+                name="John Doe"
+                description="lorem ipsum"
+                category="Tutoring"
+                city="Gainesville"
+                state="FL"
+                status="New"
+                date="December 24, 2020"
+              />
             </Grid>
             <Grid item sm={6} md={4} lg={3} xl={2}>
               <Card
-                  name = "John Doe"
-                  description = "lorem ipsum"
-                  category = "Tutoring"
-                  city = "Gainesville"
-                  state = "FL"
-                  status = "New"
-                  date = "December 24, 2020"
-                />
+                name="John Doe"
+                description="lorem ipsum"
+                category="Tutoring"
+                city="Gainesville"
+                state="FL"
+                status="New"
+                date="December 24, 2020"
+              />
             </Grid>
           </Grid>
         </div>

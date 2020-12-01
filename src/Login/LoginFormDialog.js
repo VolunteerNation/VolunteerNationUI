@@ -1,7 +1,7 @@
 import React from 'react';
 // import Avatar from '@material-ui/core/Avatar';
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
@@ -30,13 +30,13 @@ const styles = (theme) => ({
 });
 
 const DialogTitle = withStyles(styles)((props) => {
-  const { children, classes, onClose, ...other } = props;
+  const {children, classes, onClose, ...other} = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <Typography variant="h6">{children}</Typography>
       {onClose ? (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-          <CloseIcon />
+          <CloseIcon/>
         </IconButton>
       ) : null}
     </MuiDialogTitle>
@@ -69,20 +69,22 @@ export default function FormDialog() {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen('body')}>
-      Login
+        Login
       </Button>
-      <Dialog 
-      scroll={scroll}
-      open={open} 
-      onClose={handleClose} 
-      aria-labelledby="form-dialog-title" 
-      TransitionComponent={Transition}>
+      <Dialog
+        scroll={scroll}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+        TransitionComponent={Transition}>
 
-        <DialogTitle onClose={handleClose}><div><Typography component="h1" variant="h5">Login</Typography></div></DialogTitle>
+        <DialogTitle onClose={handleClose}>
+          <div><Typography component="h1" variant="h5">Login</Typography></div>
+        </DialogTitle>
         <DialogContent dividers>
-        <Typography gutterBottom>
-        </Typography>
-        <LoginFormData/>
+          <Typography gutterBottom>
+          </Typography>
+          <LoginFormData/>
         </DialogContent>
       </Dialog>
     </div>

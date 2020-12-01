@@ -1,7 +1,6 @@
 import React from 'react';
 import FormData from './FormData';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -9,7 +8,7 @@ import Dialog from '@material-ui/core/Dialog';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 
 const styles = (theme) => ({
   root: {
@@ -29,13 +28,13 @@ const styles = (theme) => ({
 });
 
 const DialogTitle = withStyles(styles)((props) => {
-  const { children, classes, onClose, ...other } = props;
+  const {children, classes, onClose, ...other} = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <Typography variant="h6">{children}</Typography>
       {onClose ? (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-          <CloseIcon />
+          <CloseIcon/>
         </IconButton>
       ) : null}
     </MuiDialogTitle>
@@ -68,21 +67,23 @@ export default function FormDialog() {
   return (
     <div>
       <Button variant="contained" color="secondary" onClick={handleClickOpen('body')}>
-      Register
+        Register
       </Button>
-      <Dialog 
-      scroll={scroll}
-      open={open} 
-      onClose={handleClose} 
-      aria-labelledby="form-dialog-title" 
-      TransitionComponent={Transition}>
+      <Dialog
+        scroll={scroll}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+        TransitionComponent={Transition}>
 
-        <DialogTitle onClose={handleClose}><div>
-        <Typography component="h1" variant="h5">Sign-Up</Typography></div></DialogTitle>
+        <DialogTitle onClose={handleClose}>
+          <div>
+            <Typography component="h1" variant="h5">Sign-Up</Typography></div>
+        </DialogTitle>
         <DialogContent dividers>
-        <Typography gutterBottom>
-        </Typography>
-        <FormData/>
+          <Typography gutterBottom>
+          </Typography>
+          <FormData/>
         </DialogContent>
       </Dialog>
     </div>

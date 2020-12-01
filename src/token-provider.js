@@ -2,55 +2,55 @@ import {TokenContext} from './token-context';
 import React from 'react';
 
 class TokenProvider extends React.Component {
-    state = {
-      token: null,
-      username: null,
-      regsuccess: false,
-      loginsuccess: false,
-      responseMessage: "Attempting to Register",
-      loginMessage: "Attempting to Login"
-    };
-  
-    handleNewToken = (newToken, newUsername) => {
-      this.setState({token: newToken});
-      this.setState({username: newUsername});
-      this.setState({regsuccess: true});
-      let msg = newUsername + ' has been registered.';
-      this.setState({responseMessage: msg});
-    }
+  state = {
+    token: null,
+    username: null,
+    regsuccess: false,
+    loginsuccess: false,
+    responseMessage: "Attempting to Register",
+    loginMessage: "Attempting to Login"
+  };
 
-    handleLogin = (token, callback) => {
-      this.setState({token: token})
-      this.setState({loginsuccess: true});
-      let msg = "Login Successful";
-      this.setState({loginMessage: msg});
-    }
+  handleNewToken = (newToken, newUsername) => {
+    this.setState({token: newToken});
+    this.setState({username: newUsername});
+    this.setState({regsuccess: true});
+    let msg = newUsername + ' has been registered.';
+    this.setState({responseMessage: msg});
+  }
 
-    handleErrorMessage = (errorList) => {
-        if (Array.isArray(errorList)) {
-            if (errorList.length > 0) {
-                this.setState({responseMessage: errorList[0].msg});
-            }
-        }
-    }
+  handleLogin = (token, callback) => {
+    this.setState({token: token})
+    this.setState({loginsuccess: true});
+    let msg = "Login Successful";
+    this.setState({loginMessage: msg});
+  }
 
-    handleErrorLogin = (error) => {
-      if(error) {
-        this.setState({loginMessage: error.msg});
+  handleErrorMessage = (errorList) => {
+    if (Array.isArray(errorList)) {
+      if (errorList.length > 0) {
+        this.setState({responseMessage: errorList[0].msg});
       }
-    }
-
-    render() {
-      return <TokenContext.Provider value={{
-        ...this.state,
-        handleNewToken: this.handleNewToken,
-        handleLogin: this.handleLogin,
-        handleErrorMessage: this.handleErrorMessage,
-        handleErrorLogin: this.handleErrorLogin,
-      }}>
-        {this.props.children}
-      </TokenContext.Provider>
     }
   }
 
-  export default TokenProvider;
+  handleErrorLogin = (error) => {
+    if (error) {
+      this.setState({loginMessage: error.msg});
+    }
+  }
+
+  render() {
+    return <TokenContext.Provider value={{
+      ...this.state,
+      handleNewToken: this.handleNewToken,
+      handleLogin: this.handleLogin,
+      handleErrorMessage: this.handleErrorMessage,
+      handleErrorLogin: this.handleErrorLogin,
+    }}>
+      {this.props.children}
+    </TokenContext.Provider>
+  }
+}
+
+export default TokenProvider;

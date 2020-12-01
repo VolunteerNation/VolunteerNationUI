@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Carousel } from 'antd';
+import {Carousel} from 'antd';
 
 const contentStyle = {
   height: '160px',
@@ -16,12 +16,12 @@ export default function HomePageCarousel() {
       <div>
         <h3 style={contentStyle}>
           COVID-19 has impacted everyone differently.
-          </h3>
+        </h3>
       </div>
       <div>
         <h3 style={contentStyle}>
-          VoluneerNation is here to connect you with people who can help you meet these new challenges.
-          </h3>
+          VolunteerNation is here to connect you with people who can help you meet these new challenges.
+        </h3>
       </div>
       <div>
         <h3 style={contentStyle}>
@@ -30,7 +30,8 @@ export default function HomePageCarousel() {
       </div>
       <div>
         <h3 style={contentStyle}>
-        VolunteerNation puts safety first by allowing you to coordinate your volunteering efforts entirely online!
+          VolunteerNation puts safety first by allowing you to coordinate your volunteering efforts entirely
+          online!
         </h3>
       </div>
     </Carousel>

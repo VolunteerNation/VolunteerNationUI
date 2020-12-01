@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 // import Link from '@material-ui/core/Link';
 // import Grid from '@material-ui/core/Grid';
 // import { makeStyles } from '@material-ui/core/styles';
@@ -41,17 +41,17 @@ export class LoginForm extends Component {
   }
 
   back = event => {
-      event.preventDefault();
-      this.props.prevStep();
+    event.preventDefault();
+    this.props.prevStep();
   }
 
   render() {
-    const { classes } = this.props;
-    const { values: { email}, handleInputChange } = this.props;
+    const {classes} = this.props;
+    const {values: {email}, handleInputChange} = this.props;
 
     return (
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
+        <CssBaseline/>
         <div className={classes.paper}>
           <form className={classes.form} noValidate>
             <TextField
@@ -63,7 +63,7 @@ export class LoginForm extends Component {
               label="Email Address"
               name="email"
               autoComplete="email"
-              onChange = { handleInputChange ('email') }
+              onChange={handleInputChange('email')}
               autoFocus
             />
             <TextField
@@ -76,10 +76,10 @@ export class LoginForm extends Component {
               type="password"
               id="password"
               autoComplete="current-password"
-              onChange = { handleInputChange ('password') }
+              onChange={handleInputChange('password')}
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" color="primary"/>}
               label="Remember me"
             />
             <Button
@@ -88,7 +88,7 @@ export class LoginForm extends Component {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick = {this.continue}
+              onClick={this.continue}
             >
               Sign In
             </Button>
@@ -113,4 +113,4 @@ export class LoginForm extends Component {
 
 LoginForm.contextType = TokenContext;
 
-export default withStyles ( styles, {withTheme: true}) (LoginForm);
+export default withStyles(styles, {withTheme: true})(LoginForm);

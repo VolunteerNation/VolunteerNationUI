@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import InfoIcon from '@material-ui/icons/Info';
@@ -25,9 +25,9 @@ export default function SimpleBottomNavigation() {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="About" icon={<InfoIcon />} />
-      <BottomNavigationAction label="User Info" icon={<PersonIcon />} />
-      <BottomNavigationAction label="User Safety" icon={<WarningIcon />} />
+      <BottomNavigationAction label="About" icon={<InfoIcon/>}/>
+      <BottomNavigationAction label="User Info" icon={<PersonIcon/>}/>
+      <BottomNavigationAction label="User Safety" icon={<WarningIcon/>}/>
     </BottomNavigation>
   );
 }
