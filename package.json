@@ -11,7 +11,6 @@
     "antd": "^4.8.0",
     "axios": "^0.21.0",
     "lodash": "^4.17.20",
-    "mui-rte": "^1.26.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-material-ui-carousel": "^2.1.1",
