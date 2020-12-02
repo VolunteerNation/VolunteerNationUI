@@ -1,24 +1,10 @@
-import React, {Component} from 'react';
-import Navbar from './Navbar';
+import React from 'react';
+import NavbarDashboard from './NavbarDashboard';
 
-class Dashboard extends Component {
-  render() {
+export default function Dashboard() {
     return (
-      <div className="Dashboard">
-        <div className="Dashboard-Navbar">
-        </div>
-        <div className="Dashboard-Selector">
-
-        </div>
-        <div className="Dashboard-Volunteering">
-
-        </div>
-        <div className="Dashboard-Requests">
-
-        </div>
+      <div>
+        <NavbarDashboard/>
       </div>
     )
-  }
 }
-
-export default Dashboard;
