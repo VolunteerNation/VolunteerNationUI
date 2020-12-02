@@ -2,16 +2,21 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import logo from '../HomePage/logo.png';
+import NewPostControl from './NewPostControl';
 
 export default function NavbarDashboard() {
     return (
-      <div className ="MainHeader">
+<div className ="MainHeader">
+          <div className = "MainHeader-Container">
              <a href="/"><img src={logo} alt=""/></a>
+            <div className = "MainHeader-Nav">
               <Grid container spacing={4}>
-              <Grid item xs={6}>
-                <Button variant = "filled" color = "secondary">New Post</Button>
+              <Grid item xs={12}>
+              <NewPostControl/>
               </Grid>
               </Grid>
             </div>
+          </div>
+          </div>
     );
 }
