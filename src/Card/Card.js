@@ -15,7 +15,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import Tutoring from './Tutoring.jpg'
+import Tutoring from './Tutoring.jpg';
+import CardDetailsFormDialog from '../CardDetails/CardDetailsFormDialog.js';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -87,7 +88,8 @@ export default function RecipeReviewCard(props) {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton> */}
-        <IconButton
+        <CardDetailsFormDialog {...props}/>
+        {/* <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
           })}
@@ -96,15 +98,15 @@ export default function RecipeReviewCard(props) {
           aria-label="show more"
         >
           <ExpandMoreIcon />
-        </IconButton>
+        </IconButton> */}
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>
             {props.description}
           </Typography>
         </CardContent>
-      </Collapse>
+      </Collapse> */}
     </Card>
   );
 }
