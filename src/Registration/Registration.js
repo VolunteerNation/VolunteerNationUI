@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Switch from 'react-switch';
 import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -30,20 +29,6 @@ const styles = theme => ({
         display: "none"
     }
   });
-
-  /* class PasswordInput extends Component {
-    render() {
-      return <TextField type="password" {...this.props} />;
-    }
-  }
-  
-  PasswordInput.propTypes = {
-    classes: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired,
-    value: PropTypes.func.isRequired,
-  };
-  
-  PasswordInput = withStyles(styles)(PasswordInput); */
 
 export class Registration extends Component {
     state = {

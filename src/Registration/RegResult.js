@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -48,7 +47,7 @@ export class RegResult extends Component {
 
     render() {
         const { classes } = this.props;
-        const { values: { firstname, lastname, email, regsuccess, responseMessage}} = this.props;
+        const { values: { firstname, lastname, email}} = this.props;
 
         return (
           <Container component="main" maxWidth="xs">

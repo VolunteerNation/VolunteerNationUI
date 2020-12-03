@@ -78,7 +78,7 @@ export default function FormDialog() {
       TransitionComponent={Transition}>
 
         <DialogTitle onClose={handleClose}><div>
-        <Typography component="h1" variant="h5">Sign-Up</Typography></div></DialogTitle>
+        <Typography component="h1" variant="h5">Create New Post</Typography></div></DialogTitle>
         <DialogContent dividers>
         <Typography gutterBottom>
         </Typography>
