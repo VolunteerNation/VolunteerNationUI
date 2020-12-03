@@ -17,7 +17,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
       '&:hover': {
         backgroundColor: 'transparent',
@@ -55,8 +55,18 @@ const useStyles = makeStyles({
       'input:hover ~ &': {
         backgroundColor: '#106ba3',
       },
+
+      date_container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+      },
+      dateTextField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: 200,
+      },
     },
-  });
+}));
 
 const Accordion = withStyles({
     root: {
@@ -116,6 +126,8 @@ const Accordion = withStyles({
 
 export default function NewPostForm() {
 
+    const classes = useStyles();
+
     return (
         <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -158,11 +170,18 @@ export default function NewPostForm() {
                         >
                         <Typography>Poster Details</Typography>
                         </AccordionSummary>
+                        <TextField
+                            label = "Name"
+                            variant = "filled"
+                            disabled
+                            fullWidth = "true"
+                        />
                         <AccordionDetails>
-                        <Typography>
-                            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-                            maximus est, id dignissim quam.
-                        </Typography>
+                        <TextField
+                            label = "Contact Number"
+                            variant = "outlined"
+                            fullWidth = "true"
+                        />
                         </AccordionDetails>
                     </Accordion>
 
@@ -172,17 +191,40 @@ export default function NewPostForm() {
                         aria-controls="panel1bh-content"
                         id="panel1bh-header"
                         >
-                        <Typography>Post Details</Typography>
+                        <Typography>Post Type</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                         <FormControl component="fieldset">
                             <FormLabel component="legend">Category</FormLabel>
                             <RadioGroup defaultValue="female" aria-label="gender" name="customized-radios">
-                                <FormControlLabel value="female" control={<StyledRadio />} label="Female" />
-                                <FormControlLabel value="male" control={<StyledRadio />} label="Male" />
-                                <FormControlLabel value="other" control={<StyledRadio />} label="Other" />
+                                <FormControlLabel value="female" control={<StyledRadio />} label="Tutoring" />
+                                <FormControlLabel value="male" control={<StyledRadio />} label="Food Delivery" />
+                                <FormControlLabel value="other" control={<StyledRadio />} label="Grocery Pickup" />
                             </RadioGroup>
                             </FormControl>
+                        </AccordionDetails>
+                    </Accordion>
+                    <Accordion>
+                        <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1bh-content"
+                        id="panel1bh-header"
+                        >
+                        <Typography>Post Availability</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                        <form className={classes.container} noValidate>
+                            <TextField
+                                id="datetime-local"
+                                label="Available starting at/on"
+                                type="datetime-local"
+                                defaultValue="2021-01-01T00:00"
+                                className={classes.textField}
+                                InputLabelProps={{
+                                shrink: true,
+                                }}
+                            />
+                        </form>
                         </AccordionDetails>
                     </Accordion>
                 </div>
