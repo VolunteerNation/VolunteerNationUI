@@ -71,6 +71,8 @@ export default function FormDialog() {
       New Post
       </Button>
       <Dialog 
+      fullWidth={true}
+      maxWidth = {'md'}
       scroll={scroll}
       open={open} 
       onClose={handleClose} 
