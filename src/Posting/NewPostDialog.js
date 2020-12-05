@@ -8,7 +8,7 @@ import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import { withStyles } from '@material-ui/core/styles';
-import NewPostForm from './NewPostForm';
+import NewPostForm from './NewPost';
 
 const styles = (theme) => ({
     root: {

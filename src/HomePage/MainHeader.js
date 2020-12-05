@@ -23,7 +23,6 @@ class MainHeader extends Component {
           </div>
         </div>
         <div className="HomePage-SearchBar">
-          <h2 className="HomePage-Local">Find Local Opportunities</h2>
           <SearchBar/>
         </div>
       </div>

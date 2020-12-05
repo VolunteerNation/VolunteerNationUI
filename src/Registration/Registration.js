@@ -132,18 +132,15 @@ export class Registration extends Component {
                                         autoComplete="current-password"
                                     />
                                 </Grid>
-                                <Typography variant = "subtitle">Password must contain at least one special character and one capital letter.</Typography>
-                            
-                                <Grid item xs={12}>
-                                {/* <FormControlLabel
-                                    control={<Checkbox color="secondary" name="age" value="yes"/>}
-                                    onChange = { this.context.swap18(this.context.over18)}
-                                    label="Are you over the age of 18?"
-                                    required = "true"
-                                /> */}
+                                <Grid item xs = {12}>
+                                    <Typography variant = "subtitle">Password must contain at least one special character and one capital letter.</Typography>
+                                </Grid>
+                            <Grid item xs = {9}>
+                                <h4><b>Are you over the age of 18?</b></h4>
+                            </Grid>
+                            <Grid item xs = {3}>
                                 <FormControlLabel
                                     control={<Switch size="small" checked={this.state.checked} onChange={this.toggleChecked} />}
-                                    label="Are you over the age of 18?"
                                     labelPlacement="start"
                                     />
                             </Grid>

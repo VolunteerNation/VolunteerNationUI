@@ -12,12 +12,8 @@ import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 import covid from './covid.jpg';
+import Tabs from './Tabs';
 
 const styles = theme => ({
     paper: {
@@ -27,9 +23,6 @@ const styles = theme => ({
       '&:hover': {
         backgroundColor: 'transparent',
       },
-      hidden: {
-        display: "none"
-      }
     },
 });
 
@@ -54,8 +47,8 @@ const Accordion = withStyles({
         minHeight: 56,
       },
     },
-    rootv2: {
-      backgroundColor: 'white',
+    header: {
+      backgroundColor: '#fff',
     },
     content: {
       '&$expanded': {
@@ -96,7 +89,7 @@ class NewPostForm extends Component {
                 </Typography>
                 </Paper>
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={12}>
             <CKEditor
                     editor={ ClassicEditor }
                     data="Begin your post here..."
@@ -116,8 +109,10 @@ class NewPostForm extends Component {
                     } }
                 />
             </Grid>
-            <Grid item xs = {4}>
-                <div>
+            <Grid item xs = {12}>
+            <Tabs/>
+            </Grid>
+                {/* <div>
                     <Accordion>
                         <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
@@ -128,12 +123,15 @@ class NewPostForm extends Component {
                         <Typography>Poster Details</Typography>
                         </AccordionSummary>
                         <TextField
-                            label = "Name"
+                            label = "Enter First Name & Last Letter Initial"
                             variant = "filled"
                             fullWidth = "true"
                         />
-                        <AccordionSummary className = "rootv2">
-                        <Typography><i>Communication Method</i></Typography>
+                        <Location/>
+                      </Accordion>
+                      <Accordion>
+                        <AccordionSummary>
+                        <Typography>Communication Method</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                         <FormControl component="fieldset">
@@ -144,7 +142,7 @@ class NewPostForm extends Component {
                             </FormControl>
                         </AccordionDetails>
                         <TextField
-                            label = "Phone number"
+                            label = "Enter Phone Number"
                             variant = "filled"
                             fullWidth = "true"
                         />
@@ -192,21 +190,10 @@ class NewPostForm extends Component {
                         </form>
                         </AccordionDetails>
                     </Accordion>
-
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1bh-content"
-                        id="panel1bh-header"
-                        >
-                        <Typography>COVID-19 Safety</Typography>
-                        </AccordionSummary>
-                        
-                    </Accordion>
                 </div>
-            </Grid>
+            </Grid> */}
+
             <Grid item xs = {12}>
-                <Paper elevation = {0} variant="outlined" className = {classes.paper}>
                     <Accordion>
                         <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
@@ -216,18 +203,16 @@ class NewPostForm extends Component {
                         <Typography><b>COVID-19 Safety Regulations</b></Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <img src={covid} alt="" className = {classes.covid}/>
+                            <img src={covid} alt="" class="center"/>
                          </AccordionDetails>
                         <AccordionDetails>
                             <form className={classes.container} Validate>
                               <Checkbox/>
-                              <Typography>Please acknowledge that you have read and 
-                                understand the guidelines for COVID-19 Safety as depicted in the graphic.
+                              <Typography>I have read and understand what precautions to take to keep myself safe.
                               </Typography>
                             </form>
                         </AccordionDetails>
                     </Accordion>
-                </Paper>
             </Grid>
 
             <Grid item xs={12}>

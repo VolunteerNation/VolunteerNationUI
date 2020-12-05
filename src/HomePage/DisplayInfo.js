@@ -13,6 +13,7 @@ class DisplayInfo extends Component {
     }
 
     render() { 
+        
         if (this.context.infoChoice === '1') {
             return(
                 <div className="HomePage-Info" id="bottomScroll">

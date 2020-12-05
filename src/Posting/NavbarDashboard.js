@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import logo from '../HomePage/logo.png';
-import NewPostControl from './NewPostControl';
+import NewPostControl from './NewPostDialog';
 
 export default function NavbarDashboard() {
     return (
