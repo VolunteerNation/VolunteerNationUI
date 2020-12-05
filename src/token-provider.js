@@ -8,8 +8,18 @@ class TokenProvider extends React.Component {
     regsuccess: false,
     loginsuccess: false,
     responseMessage: "Attempting to Register",
-    loginMessage: "Attempting to Login"
+    loginMessage: "Attempting to Login",
+    infoChoice: '0'
   };
+
+  setInfo = (infoType) => {
+    console.log('InfoType: ' + infoType)
+    if (infoType !== this.state.infoChoice) {
+      this.setState({infoChoice: infoType});
+    } else {
+      this.setState({infoChoice: '0'});
+    }
+  }
 
   handleNewToken = (newToken, newUsername) => {
     this.setState({token: newToken});
@@ -47,6 +57,7 @@ class TokenProvider extends React.Component {
       handleLogin: this.handleLogin,
       handleErrorMessage: this.handleErrorMessage,
       handleErrorLogin: this.handleErrorLogin,
+      setInfo: this.setInfo,
     }}>
       {this.props.children}
     </TokenContext.Provider>
