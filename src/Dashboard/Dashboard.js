@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import Navbar from './Navbar';
+import NavbarDashboard from './NavbarDashboard';
 import Card from '../Card/Card.js';
 import './Dashboard.css';
 
@@ -9,7 +9,7 @@ export default function Dashboard() {
   return (
     <div className="Dashboard">
       <div className="Dashboard-Navbar">
-        <Navbar/>
+        <NavbarDashboard/>
       </div>
       <div className="Dashboard-Selector">
         <h1>My Dashboard</h1>
