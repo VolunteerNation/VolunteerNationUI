@@ -1,5 +1,6 @@
 import {TokenContext} from './token-context';
 import React from 'react';
+import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 
 class TokenProvider extends React.Component {
   state = {
@@ -22,6 +23,7 @@ class TokenProvider extends React.Component {
   }
 
   handleNewToken = (newToken, newUsername) => {
+    console.log('handle new token called with token: ' + newToken);
     this.setState({token: newToken});
     this.setState({username: newUsername});
     this.setState({regsuccess: true});
@@ -30,6 +32,7 @@ class TokenProvider extends React.Component {
   }
 
   handleLogin = (token, callback) => {
+    console.log('handle login called with: ' + token);
     this.setState({token: token})
     this.setState({loginsuccess: true});
     let msg = "Login Successful";

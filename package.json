@@ -16,13 +16,15 @@
     "lodash": "^4.17.20",
     "mui-places-autocomplete": "^2.0.0",
     "react": "^16.14.0",
+    "react-cookie": "^4.0.3",
     "react-dom": "^16.14.0",
     "react-froala-wysiwyg": "^3.2.3",
     "react-material-ui-carousel": "^2.1.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0",
     "react-scroll": "^1.8.1",
-    "react-switch": "^5.0.1"
+    "react-switch": "^5.0.1",
+    "sfcookies": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
