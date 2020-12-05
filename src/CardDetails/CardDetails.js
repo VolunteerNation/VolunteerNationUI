@@ -19,7 +19,8 @@ import Tutoring from '../Card/Tutoring.jpg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    width: 500,
+    // maxWidth: 345,
   },
   media: {
     height: 0,
@@ -62,11 +63,11 @@ export default function RecipeReviewCard(props) {
             {props.name.charAt(0)}
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
+        // action={
+        //   <IconButton aria-label="settings">
+        //     <MoreVertIcon />
+        //   </IconButton>
+        // }
         title={`${props.category} in ${props.city}, ${props.state}`}
         subheader={props.date}
       />
@@ -75,19 +76,24 @@ export default function RecipeReviewCard(props) {
         image={img}
         title={props.category}
       />
+        <CardContent>
+          <Typography paragraph>
+            {props.description}
+          </Typography>
+        </CardContent>
       {/* <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           {props.description}
         </Typography>
       </CardContent> */}
-      <CardActions disableSpacing>
+      {/* <CardActions disableSpacing> */}
         {/* <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton> */}
-        <IconButton
+        {/* <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
           })}
@@ -104,7 +110,7 @@ export default function RecipeReviewCard(props) {
             {props.description}
           </Typography>
         </CardContent>
-      </Collapse>
+      </Collapse> */}
     </Card>
   );
 }

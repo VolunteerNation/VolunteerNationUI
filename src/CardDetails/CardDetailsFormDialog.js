@@ -77,8 +77,11 @@ export default function FormDialog(props) {
       aria-labelledby="form-dialog-title" 
       TransitionComponent={Transition}>
 
-        <DialogTitle onClose={handleClose}><div>
-        <Typography component="h1" variant="h5">Sign-Up</Typography></div></DialogTitle>
+        {/* <DialogTitle onClose={handleClose}>
+        <div>
+          <Typography component="h1" variant="h4">{`${props.category} in ${props.city}, ${props.state}`}</Typography>
+          <Typography component="h2" variant="h5">{`${props.category} in ${props.city}, ${props.state}`}</Typography>
+        </div></DialogTitle> */}
         <DialogContent dividers>
         <Typography gutterBottom>
         </Typography>
