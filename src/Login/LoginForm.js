@@ -4,10 +4,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+<<<<<<< HEAD
 import {withStyles} from '@material-ui/core/styles';
 // import Link from '@material-ui/core/Link';
 // import Grid from '@material-ui/core/Grid';
 // import { makeStyles } from '@material-ui/core/styles';
+=======
+import { withStyles } from '@material-ui/core/styles';
+>>>>>>> AddPostControl
 import Container from '@material-ui/core/Container';
 import {TokenContext} from '../token-context';
 
@@ -46,8 +50,8 @@ export class LoginForm extends Component {
   }
 
   render() {
-    const {classes} = this.props;
-    const {values: {email}, handleInputChange} = this.props;
+    const { classes } = this.props;
+    const { handleInputChange } = this.props;
 
     return (
       <Container component="main" maxWidth="xs">
@@ -92,18 +96,6 @@ export class LoginForm extends Component {
             >
               Sign In
             </Button>
-            {/* <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid> */}
           </form>
         </div>
       </Container>
