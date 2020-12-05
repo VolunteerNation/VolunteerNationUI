@@ -17,6 +17,9 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import axios from 'axios';
+import {TokenContext} from '../token-context';
+import {API_host} from "../util";
 import covid from './covid.jpg';
 
 const styles = theme => ({
@@ -70,6 +73,26 @@ const Accordion = withStyles({
       padding: theme.spacing(2),
     },
   }))(MuiAccordionDetails);
+
+  // submitRegistration = () => {
+  //   const obj = {
+  //     name: this.state.username,
+  //     email: this.state.email,
+  //     password: this.state.password,
+  //     password2: this.state.password2
+  //   };
+
+  //   axios.post(`${API_host}/vnt_user/create`, obj)
+  //     .then(response => {
+  //       console.log(response.data);
+  //       console.log(this.state.username);
+  //       this.context.handleNewToken(response.data, this.state.username);
+  //     })
+  //     .catch(error => {
+  //       console.log(error.response.data[0]);
+  //       this.context.handleErrorMessage(error.response.data);
+  //     });
+  // }
 
 class NewPostForm extends Component {
 
