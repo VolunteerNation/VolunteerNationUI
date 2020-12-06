@@ -7,6 +7,7 @@ import {useHistory} from 'react-router-dom';
 import {API_host} from "../util";
 
 function LoginSuccess() {
+  console.log('test login success');
   const history = useHistory();
   history.push("/Dashboard");
   return null;
@@ -48,8 +49,9 @@ export class LoginFormData extends Component {
       .then(response => {
         console.log(response.data);
         console.log(this.state.email);
+        this.setState({success: true});
         this.context.handleLogin(response.data);
-        this.setState({success: true})
+        console.log('auth succesful');
       })
       .catch(error => {
         console.log(error.response.data);
@@ -76,6 +78,8 @@ export class LoginFormData extends Component {
         )
 
       case 2:
+        console.log('Case 2 Step: ' + step );
+        console.log(this.state.success);
         return (
           <div>
             <LoginResult/>

@@ -3,10 +3,21 @@ import MainHeader from './MainHeader.js';
 import HomePageCarousel from './HomePageCarousel.js';
 import BottomNavBar from './BottomNavBar.js';
 import DisplayInfo from './DisplayInfo.js';
-import {TokenContext} from '../token-context'; 
+import {TokenContext} from '../token-context';
+import { read_cookie } from 'sfcookies';
 import './HomePage.css';
 
 class HomePage extends Component {
+
+  componentDidMount() {
+    if (this.context.token === null) {
+      const cookie_key = 'vntToken';
+      const saved_token = read_cookie(cookie_key);
+      if (saved_token !== undefined) {
+        this.context.setToken(saved_token);
+      }
+    }
+  }
 
   render() {
     return (
