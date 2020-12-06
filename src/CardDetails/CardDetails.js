@@ -16,6 +16,9 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert'; */
 import Tutoring from '../Card/Tutoring.jpg'
+import Yardwork from '../Card/Yardwork.jpg';
+import FoodDelivery from '../Card/Food Delivery.jpg';
+import GroceryPickup from '../Card/Grocery Pickup.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,8 +54,16 @@ export default function RecipeReviewCard(props) {
   };
 
   if(props.category === "Tutoring") {
-      console.log("hello");
       img = Tutoring;
+  }
+  if (props.category === "Yardwork") {
+    img = Yardwork;
+  }
+  if (props.category === "Grocery Pickup") {
+    img = GroceryPickup;
+  }
+  if (props.category === "Food Delivery") {
+    img = FoodDelivery;
   }
 
   return (

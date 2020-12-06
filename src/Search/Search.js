@@ -4,25 +4,25 @@ import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
 import {API_host} from "../util";
-import Navbar from './Navbar';
+import Navbar from '../Dashboard/Navbar';
 import Card from '../Card/Card.js';
-import './Dashboard.css';
+import './Search.css';
 import { read_cookie } from 'sfcookies';
 
-export default function Dashboard() {
+export default function Search() {
   const [list, setList] = useState([]);
 
   useEffect(() =>{
-    axios.get(`${API_host}/vnt_post/my_posts`, { headers: {"auth-token":read_cookie('vntToken')}}).then(response => setList(response.data));
+    axios.get(`${API_host}/vnt_post/`, { headers: {"auth-token":read_cookie('vntToken')}}).then(response => setList(response.data));
   },[])
 
   return (
-    <div className="Dashboard">
-      <div className="Dashboard-Navbar">
+    <div className="Search">
+      <div className="Search-Navbar">
         <Navbar/>
       </div>
-      <div className="Dashboard-Selector">
-        <h1 style={{marginLeft: 10}}>My Dashboard</h1>
+      <div className="Search-Selector">
+        <h1 style={{marginLeft: 10}}>My Search</h1>
         <Button color="secondary" >
           Current
         </Button>
@@ -31,11 +31,11 @@ export default function Dashboard() {
         </Button>
       </div>
       <hr/>
-      <div className="Dashboard-Volunteering">
+      <div className="Search-Volunteering">
         <h2 style={{marginLeft: 10}}>Volunteer Opportunities</h2>
       </div>
       <hr/>
-      <div className="Dashboard-Requests" style={{marginLeft: 10, marginRight: 10}}>
+      <div className="Search-Requests" style={{marginLeft: 10, marginRight: 10}}>
         <h2>Requests</h2>
         <Grid container direction="row" spacing={3} justify="space-even">
           {list.map((post)=>

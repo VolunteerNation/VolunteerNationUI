@@ -14,6 +14,9 @@ import {red} from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Tutoring from './Tutoring.jpg';
+import Yardwork from './Yardwork.jpg';
+import FoodDelivery from './Food Delivery.jpg';
+import GroceryPickup from './Grocery Pickup.jpg';
 import CardDetailsFormDialog from '../CardDetails/CardDetailsFormDialog.js';
 
 const useStyles = makeStyles((theme) => ({
@@ -49,8 +52,16 @@ export default function RecipeReviewCard(props) {
   };
 
   if (props.category === "Tutoring") {
-    console.log("hello");
     img = Tutoring;
+  }
+  if (props.category === "Yardwork") {
+    img = Yardwork;
+  }
+  if (props.category === "Grocery Pickup") {
+    img = GroceryPickup;
+  }
+  if (props.category === "Food Delivery") {
+    img = FoodDelivery;
   }
 
   return (

@@ -5,3 +5,8 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+.Navbar-Menu {
+	display: flex;
+	align-items: center;
+}
