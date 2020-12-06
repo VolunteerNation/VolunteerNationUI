@@ -13,6 +13,8 @@ export default function Dashboard() {
   const [list, setList] = useState([]);
 
   useEffect(() =>{
+    console.log("testing for my_posts");
+    console.log(read_cookie('vntToken'));
     axios.get(`${API_host}/vnt_post/my_posts`, { headers: {"auth-token":read_cookie('vntToken')}}).then(response => setList(response.data));
   },[])
 

@@ -96,24 +96,24 @@ class NewPostForm extends Component {
   }
 
   publish() {
-    // console.log(this.state);
+    console.log(this.state);
+    console.log('publish called');
     if(this.state.title && this.state.firstName && this.state.lastName && this.state.description && this.state.category && this.state.city && this.state.state && this.state.completionDate) {
-
-      const obj = {
+      const data = {
         firstName: this.state.firstName,
         lastInitial: this.state.lastName.charAt(0),
-        assignedVolunteer: null,
-        postId: null,
+        assignedVolunteer: "null",
         description: this.state.description,
         category: this.state.category,
-        thumbnailType: null,
         city: this.state.city,
         state: this.state.state,
         completionStatus: this.state.completionStatus,
         completionDate: this.state.completionDate,
       };
-  
-      axios.post(`${API_host}/vnt_post/create`, { headers: {"auth-token":read_cookie('vntToken')}}, obj)
+
+      console.log("testing token for post submission:");
+      console.log(read_cookie('vntToken'));
+      axios.post(`${API_host}/vnt_post/create`, data, { headers: {"auth-token":read_cookie('vntToken')}}, )
         .then(response => {
           console.log(response.data);
           this.props.onClickPublish();
