@@ -116,10 +116,11 @@ class NewPostForm extends Component {
       axios.post(`${API_host}/vnt_post/create`, data, { headers: {"auth-token":read_cookie('vntToken')}}, )
         .then(response => {
           console.log(response.data);
+          this.context.updatePostsCreated();
           this.props.onClickPublish();
         })
         .catch(error => {
-          console.log(error.response.data[0]);
+          console.log(error.response);
         });
     }
   }
@@ -316,5 +317,7 @@ class NewPostForm extends Component {
     );
   }
 }
+NewPostForm.contextType = TokenContext;
+
 export default withStyles ( styles, {withTheme: true}) (NewPostForm);
  

@@ -10,7 +10,8 @@ class TokenProvider extends React.Component {
     loginsuccess: false,
     responseMessage: "Attempting to Register",
     loginMessage: "Attempting to Login",
-    infoChoice: '0'
+    infoChoice: '0',
+    postsCreated: 0
   };
 
   setInfo = (infoType) => {
@@ -19,6 +20,12 @@ class TokenProvider extends React.Component {
     } else {
       this.setState({infoChoice: '0'});
     }
+  }
+
+  updatePostsCreated = () => {
+    console.log("UpdatePostCalled");
+    let count = (this.state.postsCreated) + 1;
+    this.setState({postsCreated: count})
   }
 
   setToken = (token) => {
@@ -42,8 +49,8 @@ class TokenProvider extends React.Component {
     this.setState({loginMessage: msg});
     const cookie_key = 'vntToken';
     bake_cookie(cookie_key, token);
-    console.log("cookie baked: ");
-    console.log(read_cookie(cookie_key));
+    // console.log("cookie baked: ");
+    // console.log(read_cookie(cookie_key));
   }
 
   logout = () => {
@@ -87,6 +94,7 @@ class TokenProvider extends React.Component {
       setInfo: this.setInfo,
       setToken: this.setToken,
       logout: this.logout,
+      updatePostsCreated: this.updatePostsCreated
     }}>
       {this.props.children}
     </TokenContext.Provider>

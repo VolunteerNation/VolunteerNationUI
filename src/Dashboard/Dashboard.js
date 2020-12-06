@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react';
+import React, {useEffect, useContext, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
@@ -11,12 +11,16 @@ import { read_cookie } from 'sfcookies';
 
 export default function Dashboard() {
   const [list, setList] = useState([]);
+  const context_update = useContext(TokenContext);
 
   useEffect(() =>{
     console.log("testing for my_posts");
-    console.log(read_cookie('vntToken'));
+    // console.log(read_cookie('vntToken'));
     axios.get(`${API_host}/vnt_post/my_posts`, { headers: {"auth-token":read_cookie('vntToken')}}).then(response => setList(response.data));
-  },[])
+  },[context_update.postsCreated]);
+
+  // console.log(context_update);
+  // console.log('that was the context?');
 
   return (
     <div className="Dashboard">
@@ -38,7 +42,7 @@ export default function Dashboard() {
       </div>
       <hr/>
       <div className="Dashboard-Requests" style={{marginLeft: 10, marginRight: 10}}>
-        <h2>Requests</h2>
+  <h2>Requests</h2>
         <Grid container direction="row" spacing={3} justify="space-even">
           {list.map((post)=>
             <Grid item sm={6} md={4} lg={3} xl={2}>
@@ -53,72 +57,6 @@ export default function Dashboard() {
             />
           </Grid> 
             )}
-          {/* <Grid item sm={6} md={4} lg={3} xl={2}>
-            <Card
-              name="John Doe"
-              description="lorem ipsum"
-              category="Tutoring"
-              city="Gainesville"
-              state="FL"
-              status="New"
-              date="December 24, 2020"
-            />
-          </Grid>
-          <Grid item sm={6} md={4} lg={3} xl={2}>
-            <Card
-              name="John Doe"
-              description="lorem ipsum"
-              category="Tutoring"
-              city="Gainesville"
-              state="FL"
-              status="New"
-              date="December 24, 2020"
-            />
-          </Grid>
-          <Grid item sm={6} md={4} lg={3} xl={2}>
-            <Card
-              name="John Doe"
-              description="lorem ipsum"
-              category="Tutoring"
-              city="Gainesville"
-              state="FL"
-              status="New"
-              date="December 24, 2020"
-            />
-          </Grid>
-          <Grid item sm={6} md={4} lg={3} xl={2}>
-            <Card
-              name="John Doe"
-              description="lorem ipsum"
-              category="Tutoring"
-              city="Gainesville"
-              state="FL"
-              status="New"
-              date="December 24, 2020"
-            />
-          </Grid>
-          <Grid item sm={6} md={4} lg={3} xl={2}>
-            <Card
-              name="John Doe"
-              description="lorem ipsum"
-              category="Tutoring"
-              city="Gainesville"
-              state="FL"
-              status="New"
-              date="December 24, 2020"
-            />
-          </Grid>
-          <Grid item sm={6} md={4} lg={3} xl={2}>
-            <Card
-              name="John Doe"
-              description="lorem ipsum"
-              category="Tutoring"
-              city="Gainesville"
-              state="FL"
-              status="New"
-              date="December 24, 2020"
-            />
-          </Grid> */}
         </Grid>
       </div>
     </div>
