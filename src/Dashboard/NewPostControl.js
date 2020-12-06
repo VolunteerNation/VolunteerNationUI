@@ -84,7 +84,7 @@ export default function FormDialog() {
         <DialogContent dividers>
         <Typography gutterBottom>
         </Typography>
-        <NewPostForm/>
+        <NewPostForm onClickPublish = {handleClose}/>
         </DialogContent>
       </Dialog>
     </div>

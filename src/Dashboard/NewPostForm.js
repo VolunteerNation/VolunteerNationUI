@@ -21,6 +21,8 @@ import axios from 'axios';
 import {TokenContext} from '../token-context';
 import {API_host} from "../util";
 import covid from './covid.jpg';
+import { conforms } from 'lodash';
+import { read_cookie } from 'sfcookies';
 
 const styles = theme => ({
     paper: {
@@ -74,27 +76,57 @@ const Accordion = withStyles({
     },
   }))(MuiAccordionDetails);
 
-  // submitRegistration = () => {
-  //   const obj = {
-  //     name: this.state.username,
-  //     email: this.state.email,
-  //     password: this.state.password,
-  //     password2: this.state.password2
-  //   };
-
-  //   axios.post(`${API_host}/vnt_user/create`, obj)
-  //     .then(response => {
-  //       console.log(response.data);
-  //       console.log(this.state.username);
-  //       this.context.handleNewToken(response.data, this.state.username);
-  //     })
-  //     .catch(error => {
-  //       console.log(error.response.data[0]);
-  //       this.context.handleErrorMessage(error.response.data);
-  //     });
-  // }
-
 class NewPostForm extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      title: '',
+      firstName: '',
+      lastName: '',
+      description: '',
+      category: '',
+      city: '',
+      state: '',
+      completionStatus: "Awaiting Completion",
+      completionDate: '',
+    };
+    
+    this.publish = this.publish.bind(this);
+  }
+
+  publish() {
+    // console.log(this.state);
+    if(this.state.title && this.state.firstName && this.state.lastName && this.state.description && this.state.category && this.state.city && this.state.state && this.state.completionDate) {
+
+      const obj = {
+        firstName: this.state.firstName,
+        lastInitial: this.state.lastName.charAt(0),
+        assignedVolunteer: null,
+        postId: null,
+        description: this.state.description,
+        category: this.state.category,
+        thumbnailType: null,
+        city: this.state.city,
+        state: this.state.state,
+        completionStatus: this.state.completionStatus,
+        completionDate: this.state.completionDate,
+      };
+  
+      axios.post(`${API_host}/vnt_post/create`, { headers: {"auth-token":read_cookie('vntToken')}}, obj)
+        .then(response => {
+          console.log(response.data);
+          this.props.onClickPublish();
+        })
+        .catch(error => {
+          console.log(error.response.data[0]);
+        });
+    }
+  }
+
+  handleInputChange = input => (event) => {
+    this.setState({[input]: event.target.value});
+  }
 
   render() {
 
@@ -109,6 +141,7 @@ class NewPostForm extends Component {
                     fullWidth="true"
                     label = "Title"
                     helperText = "Please enter a title pertaining to your listing."
+                    onChange = {this.handleInputChange('title')}
                 />
             </Grid>
             <Grid item xs = {4}>
@@ -125,17 +158,19 @@ class NewPostForm extends Component {
                     data="Begin your post here..."
                     onReady={ editor => {
                         // You can store the "editor" and use when it is needed.
-                        console.log( 'Editor is ready to use!', editor );
+                        // console.log( 'Editor is ready to use!', editor );
                     } }
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
-                        console.log( { event, editor, data } );
+                        // console.log( { event, editor, data } );
+                        this.setState({description:data.substring(3, data.length - 4)});
+                        // console.log(this.state);
                     } }
                     onBlur={ ( event, editor ) => {
-                        console.log( 'Blur.', editor );
+                        // console.log( 'Blur.', editor );
                     } }
                     onFocus={ ( event, editor ) => {
-                        console.log( 'Focus.', editor );
+                        // console.log( 'Focus.', editor );
                     } }
                 />
             </Grid>
@@ -151,9 +186,16 @@ class NewPostForm extends Component {
                         <Typography>Poster Details</Typography>
                         </AccordionSummary>
                         <TextField
-                            label = "Name"
+                            label = "First Name"
                             variant = "filled"
                             fullWidth = "true"
+                            onChange = {this.handleInputChange('firstName')}
+                        />
+                        <TextField
+                            label = "Last Name"
+                            variant = "filled"
+                            fullWidth = "true"
+                            onChange = {this.handleInputChange('lastName')}
                         />
                         <AccordionSummary className = "rootv2">
                         <Typography><i>Communication Method</i></Typography>
@@ -171,6 +213,18 @@ class NewPostForm extends Component {
                             variant = "filled"
                             fullWidth = "true"
                         />
+                        <TextField
+                            label = "City"
+                            variant = "filled"
+                            fullWidth = "true"
+                            onChange = {this.handleInputChange('city')}
+                        />
+                        <TextField
+                            label = "State"
+                            variant = "filled"
+                            fullWidth = "true"
+                            onChange = {this.handleInputChange('state')}
+                        />
                     </Accordion>
 
                     <Accordion>
@@ -184,10 +238,11 @@ class NewPostForm extends Component {
                         <AccordionDetails>
                         <FormControl component="fieldset">
                             <FormLabel component="legend">Category</FormLabel>
-                            <RadioGroup aria-label="types" name="customized-radios">
-                                <FormControlLabel value="tutoring" control={<Radio color = "primary" />} label="Tutoring" />
-                                <FormControlLabel value="food" control={<Radio color = "primary" />} label="Food Delivery" />
-                                <FormControlLabel value="grocery" control={<Radio color = "primary" />} label="Grocery Pickup" />
+                            <RadioGroup aria-label="types" name="customized-radios" onChange = {this.handleInputChange('category')}>
+                                <FormControlLabel value="Tutoring" control={<Radio color = "primary" />} label="Tutoring" />
+                                <FormControlLabel value="Food Delivery" control={<Radio color = "primary" />} label="Food Delivery" />
+                                <FormControlLabel value="Grocery Pickup" control={<Radio color = "primary" />} label="Grocery Pickup" />
+                                <FormControlLabel value="Yardwork" control={<Radio color = "primary" />} label="Yardwork" />
                             </RadioGroup>
                             </FormControl>
                         </AccordionDetails>
@@ -208,6 +263,7 @@ class NewPostForm extends Component {
                                 type="datetime-local"
                                 defaultValue="2021-01-01T00:00"
                                 className={classes.textField}
+                                onChange = {this.handleInputChange('completionDate')}
                                 InputLabelProps={{
                                 shrink: true,
                                 }}
@@ -254,7 +310,7 @@ class NewPostForm extends Component {
             </Grid>
 
             <Grid item xs={12}>
-                <Button variant = "contained" color = "primary">Publish</Button>
+                <Button variant = "contained" color = "primary" onClick = {this.publish}>Publish</Button>
             </Grid>
         </Grid>
     );
