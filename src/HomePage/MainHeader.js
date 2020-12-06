@@ -34,7 +34,7 @@ class MainHeader extends Component {
                 style={{
                   backgroundColor: "#21b6ae",
               }}
-            onClick={() => this.context.handleNewToken(null, null)}>
+            onClick={() => this.context.logout()}>
             Logout
           </Button>
         </Grid>

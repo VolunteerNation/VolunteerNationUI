@@ -14,7 +14,6 @@ class TokenProvider extends React.Component {
   };
 
   setInfo = (infoType) => {
-    console.log('InfoType: ' + infoType)
     if (infoType !== this.state.infoChoice) {
       this.setState({infoChoice: infoType});
     } else {
@@ -22,21 +21,46 @@ class TokenProvider extends React.Component {
     }
   }
 
+  setToken = (token) => {
+    this.setState({token: token});
+  }
+
   handleNewToken = (newToken, newUsername) => {
-    console.log('handle new token called with token: ' + newToken);
     this.setState({token: newToken});
     this.setState({username: newUsername});
     this.setState({regsuccess: true});
     let msg = newUsername + ' has been registered.';
     this.setState({responseMessage: msg});
+    const cookie_key = 'vntToken';
+    bake_cookie(cookie_key, newToken);
   }
 
   handleLogin = (token, callback) => {
-    console.log('handle login called with: ' + token);
     this.setState({token: token})
     this.setState({loginsuccess: true});
     let msg = "Login Successful";
     this.setState({loginMessage: msg});
+    const cookie_key = 'vntToken';
+    bake_cookie(cookie_key, token);
+    console.log("cookie baked: ");
+    console.log(read_cookie(cookie_key));
+  }
+
+  logout = () => {
+    const cookie_key = 'vntToken';
+    console.log('logging out')
+    console.log("cookie read: ");
+    console.log(read_cookie(cookie_key));
+    delete_cookie(cookie_key);
+    this.setState({
+      token: null,
+      username: null,
+      regsuccess: false,
+      loginsuccess: false,
+      responseMessage: "Attempting to Register",
+      loginMessage: "Attempting to Login",
+      infoChoice: '0'
+    })
   }
 
   handleErrorMessage = (errorList) => {
@@ -61,6 +85,8 @@ class TokenProvider extends React.Component {
       handleErrorMessage: this.handleErrorMessage,
       handleErrorLogin: this.handleErrorLogin,
       setInfo: this.setInfo,
+      setToken: this.setToken,
+      logout: this.logout,
     }}>
       {this.props.children}
     </TokenContext.Provider>
