@@ -34,6 +34,8 @@ export default function Search() {
               state={post.state}
               status={post.completionStatus}
               date={post.completionDate}
+              volunteer={post.assignedVolunteer}
+              postId={post._id}
             />
           </Grid> 
             )}
