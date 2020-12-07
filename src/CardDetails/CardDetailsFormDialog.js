@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import CardDetails from './CardDetails';
 import Button from '@material-ui/core/Button';
 /* import TextField from '@material-ui/core/TextField'; */
@@ -13,6 +13,7 @@ import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import {API_host} from "../util";
 import { read_cookie } from 'sfcookies';
+import {TokenContext} from '../token-context';
 
 const styles = (theme) => ({
   root: {
@@ -59,6 +60,8 @@ export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState('paper');
 
+  const context_update = useContext(TokenContext);
+
   const handleClickOpen = (scrollType) => () => {
     setOpen(true);
     setScroll(scrollType);
@@ -78,12 +81,11 @@ export default function FormDialog(props) {
       id:props.postId
     }
 
-    axios.post(`http://localhost:4000/vnt_post/volunteer`, data, { headers: {"auth-token":read_cookie('vntToken')}})
-    // axios.post(`${API_host}/vnt_post/volunteer`, { headers: {"auth-token":read_cookie('vntToken')}})
+    axios.post(`${API_host}/vnt_post/volunteer`, data, { headers: {"auth-token":read_cookie('vntToken')}})
     .then(response => {
       console.log(response.data);
-      // this.context.updatePostsCreated();
-      // this.props.onClickPublish();
+      console.log('about to try update volunteered');
+      context_update.updateVolunteered();
     })
     .catch(error => {
       console.log(error.response);
@@ -95,9 +97,9 @@ export default function FormDialog(props) {
       <Button variant="contained" color="secondary" onClick={handleClickOpen('body')}>
       Show More
       </Button>
-      {(props.volunteer == "null" ? <Button style={{marginLeft: 5}} variant="contained" color="secondary" onClick={() => handleClickVolunteer()}>
+      {((props.volunteer == "null" && props.viewingOn != 'dashboard') ? <Button style={{marginLeft: 5}} variant="contained" color="secondary" onClick={() => handleClickVolunteer()}>
       Become Volunteer
-      </Button> : <div></div>)}
+      </Button> : ((props.viewingOn == "dashboard" && props.volunteer != "null") ? <Typography paragraph style={{float: 'right', marginLeft: 40}}>Volunteer Found!</Typography>: <div></div>))}
       <Dialog 
       scroll={scroll}
       open={open} 

@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import logo from './logo.png';
 import SearchBar from './SearchBar.js';
 import Button from '@material-ui/core/Button';
-import {TokenContext} from '../token-context'; 
+import {TokenContext} from '../token-context';
 
 class MainHeader extends Component {
   constructor(props) {
@@ -29,6 +29,16 @@ class MainHeader extends Component {
     } else {
       return(
         <Grid container spacing={4}>
+           <Grid item xs={12} sm={6}>
+            <Button  
+                style={{
+                  backgroundColor: "blue",
+                  color: "white",
+              }}
+            onClick={() => window.location = "/dashboard"}>
+            Dashboard
+          </Button>
+        </Grid>
         <Grid item xs={12} sm={6}>
             <Button variant="outlined" 
                 style={{
@@ -50,14 +60,6 @@ class MainHeader extends Component {
           <a href="/"><img src={logo} alt=""/></a>
           <div className="MainHeader-Nav">
             { this.displayButtons() }
-            {/* <Grid container spacing={4}>
-              <Grid item xs={12} sm={6}>
-                <FormDialog/>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <LoginFormDialog/>
-              </Grid>
-            </Grid> */}
           </div>
         </div>
         <div className="HomePage-SearchBar">

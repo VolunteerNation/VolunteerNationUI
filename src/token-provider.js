@@ -11,7 +11,8 @@ class TokenProvider extends React.Component {
     responseMessage: "Attempting to Register",
     loginMessage: "Attempting to Login",
     infoChoice: '0',
-    postsCreated: 0
+    postsCreated: 0,
+    volunteered: 0 
   };
 
   setInfo = (infoType) => {
@@ -26,6 +27,12 @@ class TokenProvider extends React.Component {
     console.log("UpdatePostCalled");
     let count = (this.state.postsCreated) + 1;
     this.setState({postsCreated: count})
+  }
+
+  updateVolunteered = () => {
+    console.log("UpdateVolunteered Called");
+    let count = (this.state.volunteered) + 1;
+    this.setState({volunteered: count})
   }
 
   setToken = (token) => {
@@ -94,7 +101,8 @@ class TokenProvider extends React.Component {
       setInfo: this.setInfo,
       setToken: this.setToken,
       logout: this.logout,
-      updatePostsCreated: this.updatePostsCreated
+      updatePostsCreated: this.updatePostsCreated,
+      updateVolunteered: this.updateVolunteered
     }}>
       {this.props.children}
     </TokenContext.Provider>

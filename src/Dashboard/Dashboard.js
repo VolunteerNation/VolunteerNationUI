@@ -14,13 +14,10 @@ export default function Dashboard() {
   const context_update = useContext(TokenContext);
 
   useEffect(() =>{
-    console.log("testing for my_posts");
-    // console.log(read_cookie('vntToken'));
     axios.get(`${API_host}/vnt_post/my_posts`, { headers: {"auth-token":read_cookie('vntToken')}}).then(response => setList(response.data));
+  // },[context_update.postsCreated, read_cookie('vntToken')]);
   },[context_update.postsCreated]);
-
-  // console.log(context_update);
-  // console.log('that was the context?');
+  // },[context_update.postsCreated, read_cookie('vntToken')]);
 
   return (
     <div className="Dashboard">
@@ -54,6 +51,8 @@ export default function Dashboard() {
               state={post.state}
               status={post.completionStatus}
               date={post.completionDate}
+              volunteer={post.assignedVolunteer}
+              viewingOn="dashboard"
             />
           </Grid> 
             )}

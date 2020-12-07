@@ -10,7 +10,7 @@ class Navbar extends Component {
     return (
       <div className="Navbar">
         <div className="Navbar-Logo">
-          <img src={logo} alt=""/>         
+          <a href="/"><img src={logo} alt=""/></a>         
         </div>
         <div className="Navbar-Menu">
           <Grid container spacing={12}>

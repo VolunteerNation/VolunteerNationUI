@@ -5,6 +5,7 @@ import axios from 'axios';
 import {TokenContext} from '../token-context';
 import {useHistory} from 'react-router-dom';
 import {API_host} from "../util";
+import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 
 function LoginSuccess() {
   console.log('test login success');
@@ -49,6 +50,8 @@ export class LoginFormData extends Component {
       .then(response => {
         console.log(response.data);
         console.log(this.state.email);
+        const cookie_key = 'vntToken';
+        bake_cookie(cookie_key, response.data);
         this.setState({success: true});
         this.context.handleLogin(response.data);
         console.log('auth succesful');
