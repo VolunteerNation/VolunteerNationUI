@@ -19,7 +19,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
-import {API_host} from "../util";
+import {API_host} from "../Util/util";
 import covid from './covid.jpg';
 import {read_cookie} from 'sfcookies';
 

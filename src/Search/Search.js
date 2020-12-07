@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
-import {API_host} from "../util";
+import {API_host} from "../Util/util";
 import Navbar from '../Dashboard/Navbar';
 import Card from '../Card/Card.js';
 import './Search.css';

@@ -4,7 +4,7 @@ import LoginResult from './LoginResult';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
 import {useHistory} from 'react-router-dom';
-import {API_host} from "../util";
+import {API_host} from "../Util/util";
 import {bake_cookie} from 'sfcookies';
 
 function LoginSuccess() {

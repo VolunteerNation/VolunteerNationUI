@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
-import {API_host} from "../util";
+import {API_host} from "../Util/util";
 import Navbar from './Navbar';
 import Card from '../Card/Card.js';
 import './Dashboard.css';

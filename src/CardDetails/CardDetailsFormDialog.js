@@ -11,7 +11,7 @@ import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import {withStyles} from '@material-ui/core/styles';
 import axios from 'axios';
-import {API_host} from "../util";
+import {API_host} from "../Util/util";
 import {read_cookie} from 'sfcookies';
 import {TokenContext} from '../token-context';
 
