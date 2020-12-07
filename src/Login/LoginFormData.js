@@ -4,8 +4,8 @@ import LoginResult from './LoginResult';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
 import {useHistory} from 'react-router-dom';
-import {API_host} from "../util";
-import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
+import {API_host} from "../Util/util";
+import {bake_cookie} from 'sfcookies';
 
 function LoginSuccess() {
   console.log('test login success');
@@ -81,7 +81,7 @@ export class LoginFormData extends Component {
         )
 
       case 2:
-        console.log('Case 2 Step: ' + step );
+        console.log('Case 2 Step: ' + step);
         console.log(this.state.success);
         return (
           <div>

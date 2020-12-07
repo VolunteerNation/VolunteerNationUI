@@ -1,12 +1,12 @@
 .Navbar {
-	margin: 0 0;
-	padding: 0 0;
-	display: flex;
+    margin: 0 0;
+    padding: 0 0;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .Navbar-Menu {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }

@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import {TokenContext} from '../token-context'; 
+import React, {Component} from "react";
+import {TokenContext} from '../token-context';
 import needHelpGraphic from './needHelp.png';
 import helpingHandGraphic from './helpingHand.png';
 import safetyGraphic from './safety.png';
 
-class DisplayInfo extends Component {  
-    
-    componentDidUpdate() {
-        console.log('scroll attempt')
-        const anchor = document.querySelector('#bottomScroll')
-        anchor.scrollIntoView({ behavior: 'smooth', block: 'center'})
-    }
+class DisplayInfo extends Component {
+
+  componentDidUpdate() {
+    console.log('scroll attempt')
+    const anchor = document.querySelector('#bottomScroll')
+    anchor.scrollIntoView({behavior: 'smooth', block: 'center'})
+  }
 
     render() { 
         if (this.context.infoChoice === '1') {
@@ -80,6 +80,9 @@ class DisplayInfo extends Component {
                         <li>
                             All users are required to review COVID safety guidelines before adding a post to the site.
                         </li>
+                        <li>
+                        Tasks that involve public areas will be marked with a warning and advisement to follow all appropriate safety precautions.
+                        </li>
                         <li id="bottomScroll">
                             Users can also request that their task be completed contactlessly.
                         </li>
@@ -94,6 +97,8 @@ class DisplayInfo extends Component {
         }
     }
   }
-  DisplayInfo.contextType = TokenContext;
+}
 
-  export default DisplayInfo;
+DisplayInfo.contextType = TokenContext;
+
+export default DisplayInfo;

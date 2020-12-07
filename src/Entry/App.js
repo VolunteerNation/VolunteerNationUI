@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import HomePage from './HomePage/HomePage.js';
-import Dashboard from './Dashboard/Dashboard.js';
-import Search from './Search/Search.js';
-import TokenProvider from './token-provider';
+import HomePage from '../HomePage/HomePage.js';
+import Dashboard from '../Dashboard/Dashboard.js';
+import Search from '../Search/Search.js';
+import TokenProvider from '../token-provider';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 
