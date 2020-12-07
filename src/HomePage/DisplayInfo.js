@@ -15,7 +15,7 @@ class DisplayInfo extends Component {
     render() { 
         if (this.context.infoChoice === '1') {
             return(
-                <div className="HomePage-Info" id="bottomScroll">
+                <div className="HomePage-Info">
                     <div className="HomePage-InfoImage">
                         <img className="HomePage-Graphic" src={ needHelpGraphic } alt=""/>
                     </div>
@@ -27,18 +27,21 @@ class DisplayInfo extends Component {
                             corner of the homepage.
                         </li>
                         <li>
-                            "Step 2 - Navigating to where a new post can be created"
+                            Click the "New Post" button.
                         </li>
                         <li>
-                            "Step 3 - Filling out and submitting a new post."
+                            From here you can describe a task you need assistance with. Just hit the "Publish" button when you're done!
+                        </li>
+                        <li id="bottomScroll">
+                            Your task will be added to the search page where a volunteer whose skills match your needs will be able to find it and apply to help.
                         </li>
                         </ol>
                     </div>
                 </div>
             );
-        } else if (this.context.infoChoice === '2'){
+        } else if (this.context.infoChoice === '2') {
             return(
-                <div className="HomePage-Info" id="bottomScroll">
+                <div className="HomePage-Info">
                     <div className="HomePage-InfoImage">
                         <img className="HomePage-Graphic" src={ helpingHandGraphic } alt=""/>
                     </div>
@@ -50,10 +53,13 @@ class DisplayInfo extends Component {
                             corner of the homepage.
                         </li>
                         <li>
-                            "Step 2 - Navigating to the posts"
+                            Click the menu button in the top right corner of the dashboard page and select "Search".
                         </li>
                         <li>
-                            "Step 3 - Marking yourself as a volunteer."
+                            You'll be able to see all of the available tasks that VolunteerNation users need help with.
+                        </li>
+                        <li id="bottomScroll">
+                            Once you find a task that's right for you, just click "Become a Volunteer"!
                         </li>
                         </ol>
                     </div>
@@ -61,21 +67,23 @@ class DisplayInfo extends Component {
             );
         } else if (this.context.infoChoice === '3'){
             return(
-                <div className="HomePage-Info" id="bottomScroll">
+                <div className="HomePage-Info">
                     <div className="HomePage-InfoImage">
                         <img className="HomePage-Graphic" src={ safetyGraphic } alt=""/>
                     </div>
                     <div className="HomePage-InfoBlurb">
-                        <ol>
+                        <ul>
                         <h2>How can I stay safe?</h2>
                         <li>
-                            All coordination using VolunteerNation is contactless.
+                            Safety is our top priority at VolunteerNation!
                         </li>
                         <li>
-                            Tasks that involve public areas will be marked with a warning and advisement to follow
-                            all appropriate safety precautions.
+                            All users are required to review COVID safety guidelines before adding a post to the site.
                         </li>
-                        </ol>
+                        <li id="bottomScroll">
+                            Users can also request that their task be completed contactlessly.
+                        </li>
+                        </ul>
                     </div>
                 </div>
             );
