@@ -21,22 +21,8 @@ export default function Search() {
       <div className="Search-Navbar">
         <Navbar/>
       </div>
-      <div className="Search-Selector">
-        <h1 style={{marginLeft: 10}}>My Search</h1>
-        <Button color="secondary" >
-          Current
-        </Button>
-        <Button color="secondary" >
-          Completed
-        </Button>
-      </div>
-      <hr/>
-      <div className="Search-Volunteering">
-        <h2 style={{marginLeft: 10}}>Volunteer Opportunities</h2>
-      </div>
-      <hr/>
       <div className="Search-Requests" style={{marginLeft: 10, marginRight: 10}}>
-        <h2>Requests</h2>
+        <h1>Active Volunteer Requests</h1>
         <Grid container direction="row" spacing={3} justify="space-even">
           {list.map((post)=>
             <Grid item sm={6} md={4} lg={3} xl={2}>

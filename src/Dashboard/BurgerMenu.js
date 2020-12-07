@@ -9,6 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
+import {Link} from 'react-router-dom';
 // import './HamburgerMenu.css';
 
 const StyledMenu = withStyles({
@@ -74,9 +75,11 @@ export default function CustomizedMenus(props) {
         onClose={handleClose}
       >
         {props.pages.map(page => 
-          <StyledMenuItem>
-            <ListItemText primary = {page} />
-          </StyledMenuItem>
+          <Link to={`/${page}`}>
+            <StyledMenuItem>
+              <ListItemText primary = {page} />
+            </StyledMenuItem>
+          </Link>
         )}
       </StyledMenu>
     </div>
