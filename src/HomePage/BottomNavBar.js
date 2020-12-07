@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import InfoIcon from '@material-ui/icons/Info';
 import PersonIcon from '@material-ui/icons/Person';
 import WarningIcon from '@material-ui/icons/Warning';
-import {TokenContext} from '../token-context'; 
+import {TokenContext} from '../token-context';
 
 export default class SimpleBottomNavigation extends Component {
 
@@ -19,7 +19,7 @@ export default class SimpleBottomNavigation extends Component {
   }
 
   render() {
-    const { value } = this.state.value;
+    const {value} = this.state.value;
     return (
       <BottomNavigation
         value={value}

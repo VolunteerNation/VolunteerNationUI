@@ -10,7 +10,7 @@ class Navbar extends Component {
     return (
       <div className="Navbar">
         <div className="Navbar-Logo">
-          <a href="/"><img src={logo} alt=""/></a>         
+          <a href="/"><img src={logo} alt=""/></a>
         </div>
         <div className="Navbar-Menu">
           <Grid container spacing={12}>
@@ -18,9 +18,9 @@ class Navbar extends Component {
               <NewPostControl/>
             </Grid>
             <Grid item xs={4}>
-              <BurgerMenu pages = {["Dashboard", "Search", "Profile"]}/>
+              <BurgerMenu pages={["Dashboard", "Search", "Profile"]}/>
             </Grid>
-          </Grid>        
+          </Grid>
         </div>
       </div>
     )

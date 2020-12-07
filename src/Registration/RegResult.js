@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -45,9 +45,9 @@ export class RegResult extends Component {
     this.props.prevStep();
   }
 
-    render() {
-        const { classes } = this.props;
-        const { values: { firstname, lastname, email}} = this.props;
+  render() {
+    const {classes} = this.props;
+    const {values: {firstname, lastname, email}} = this.props;
 
     return (
       <Container component="main" maxWidth="xs">

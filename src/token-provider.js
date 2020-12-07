@@ -1,6 +1,6 @@
 import {TokenContext} from './token-context';
 import React from 'react';
-import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
+import {bake_cookie, delete_cookie, read_cookie} from 'sfcookies';
 
 class TokenProvider extends React.Component {
   state = {
@@ -12,7 +12,7 @@ class TokenProvider extends React.Component {
     loginMessage: "Attempting to Login",
     infoChoice: '0',
     postsCreated: 0,
-    volunteered: 0 
+    volunteered: 0
   };
 
   setInfo = (infoType) => {
