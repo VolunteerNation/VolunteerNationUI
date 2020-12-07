@@ -96,8 +96,8 @@ class DisplayInfo extends Component {
             );
         }
     }
-  }
 }
+
 
 DisplayInfo.contextType = TokenContext;
 
