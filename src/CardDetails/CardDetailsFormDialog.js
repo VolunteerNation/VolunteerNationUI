@@ -10,6 +10,9 @@ import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import { withStyles } from '@material-ui/core/styles';
+import axios from 'axios';
+import {API_host} from "../util";
+import { read_cookie } from 'sfcookies';
 
 const styles = (theme) => ({
   root: {
@@ -65,11 +68,36 @@ export default function FormDialog(props) {
     setOpen(false);
   };
 
+  const data = {};
+
+  const handleClickVolunteer = () => {
+    console.log("Volunteer button clicked");
+    // console.log(read_cookie('vntToken'));
+
+    const data = {
+      id:props.postId
+    }
+
+    axios.post(`http://localhost:4000/vnt_post/volunteer`, data, { headers: {"auth-token":read_cookie('vntToken')}})
+    // axios.post(`${API_host}/vnt_post/volunteer`, { headers: {"auth-token":read_cookie('vntToken')}})
+    .then(response => {
+      console.log(response.data);
+      // this.context.updatePostsCreated();
+      // this.props.onClickPublish();
+    })
+    .catch(error => {
+      console.log(error.response);
+    });
+  }
+
   return (
     <div>
       <Button variant="contained" color="secondary" onClick={handleClickOpen('body')}>
       Show More
       </Button>
+      {(props.volunteer == "null" ? <Button style={{marginLeft: 5}} variant="contained" color="secondary" onClick={() => handleClickVolunteer()}>
+      Become Volunteer
+      </Button> : <div></div>)}
       <Dialog 
       scroll={scroll}
       open={open} 
