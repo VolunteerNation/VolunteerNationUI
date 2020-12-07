@@ -91,7 +91,7 @@ export default function RecipeReviewCard(props) {
         <Typography paragraph>
           {props.description}
         </Typography>
-        {(props.volunteer != 'null' ? <Typography>Volunteer: {props.volunteer}</Typography> : "")}
+        {(props.volunteer !== 'null' ? <Typography>Volunteer: {props.volunteer}</Typography> : "")}
       </CardContent>
       {/* <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">

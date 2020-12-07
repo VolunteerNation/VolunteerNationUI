@@ -91,10 +91,9 @@ class NewPostForm extends Component {
       completionDate: '',
     };
 
-    this.publish = this.publish.bind(this);
   }
 
-  publish() {
+  publish = () => {
     console.log(this.state);
     console.log('publish called');
     if (this.state.title && this.state.firstName && this.state.lastName && this.state.description && this.state.category && this.state.city && this.state.state && this.state.completionDate) {

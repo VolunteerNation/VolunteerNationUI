@@ -71,7 +71,7 @@ export default function FormDialog(props) {
     setOpen(false);
   };
 
-  const data = {};
+  // const data = {};
 
   const handleClickVolunteer = () => {
     console.log("Volunteer button clicked");
@@ -97,10 +97,10 @@ export default function FormDialog(props) {
       <Button variant="contained" color="secondary" onClick={handleClickOpen('body')}>
         Show More
       </Button>
-      {((props.volunteer == "null" && props.viewingOn != 'dashboard') ?
+      {((props.volunteer === "null" && props.viewingOn !== 'dashboard') ?
         <Button style={{marginLeft: 5}} variant="contained" color="secondary" onClick={() => handleClickVolunteer()}>
           Become Volunteer
-        </Button> : ((props.viewingOn == "dashboard" && props.volunteer != "null") ?
+        </Button> : ((props.viewingOn === "dashboard" && props.volunteer !== "null") ?
           <Typography paragraph style={{float: 'right', marginLeft: 40}}>Volunteer Found!</Typography> : <div></div>))}
       <Dialog
         scroll={scroll}

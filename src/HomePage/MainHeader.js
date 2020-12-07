@@ -8,13 +8,8 @@ import Button from '@material-ui/core/Button';
 import {TokenContext} from '../token-context';
 
 class MainHeader extends Component {
-  constructor(props) {
-    super(props);
 
-    this.displayButtons = this.displayButtons.bind(this);
-  }
-
-  displayButtons() {
+  displayButtons = () => {
     if (this.context.token === null) {
       return (
         <Grid container spacing={4}>
