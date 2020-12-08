@@ -26,12 +26,12 @@ export default function Dashboard() {
       </div>
       <div className="Dashboard-Selector">
         <h1 style={{marginLeft: 10}}>My Dashboard</h1>
-        <Button color="secondary">
+        {/* <Button color="secondary">
           Current
         </Button>
         <Button color="secondary">
           Completed
-        </Button>
+        </Button> */}
       </div>
       <hr/>
       <div className="Dashboard-Volunteering">
