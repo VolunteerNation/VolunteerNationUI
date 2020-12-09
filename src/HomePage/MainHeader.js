@@ -7,10 +7,17 @@ import Button from '@material-ui/core/Button';
 import {TokenContext} from '../token-context';
 import {read_cookie} from 'sfcookies';
 import {VNT_TOKEN_COOKIE} from "../Util/util";
+import {useHistory} from "react-router-dom";
+
+function GotoDashBoard() {
+  const history = useHistory();
+  history.push("/Dashboard");
+}
 
 class MainHeader extends Component {
 
   displayButtons = () => {
+
     if ((read_cookie(VNT_TOKEN_COOKIE)).length < 1) {
       // if (false) {
       return (
@@ -32,7 +39,7 @@ class MainHeader extends Component {
                 backgroundColor: "blue",
                 color: "white",
               }}
-              onClick={() => window.location = "/dashboard"}>
+              onClick={() => GotoDashBoard() }>
               Dashboard
             </Button>
           </Grid>
