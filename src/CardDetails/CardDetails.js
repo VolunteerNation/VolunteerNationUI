@@ -7,10 +7,10 @@ import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import {red} from '@material-ui/core/colors';
-import Tutoring from '../Card/Tutoring.jpg'
-import Yardwork from '../Card/Yardwork.jpg';
-import FoodDelivery from '../Card/Food Delivery.jpg';
-import GroceryPickup from '../Card/Grocery Pickup.jpg';
+import Tutoring from '../Images/Tutoring.jpg'
+import Yardwork from '../Images/Yardwork.jpg';
+import FoodDelivery from '../Images/Food Delivery.jpg';
+import GroceryPickup from '../Images/Grocery Pickup.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -21,7 +21,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
 import {API_HOST, AUTH_HEADERS, VNT_TOKEN_COOKIE} from "../Util/util";
-import covid from './covid.jpg';
+import covid from '../Images/covid.jpg';
 import {read_cookie} from 'sfcookies';
 
 const styles = theme => ({

@@ -31,7 +31,7 @@
 .MainHeader {
     display: flex;
     flex-flow: column;
-    background-image: url("./volunteer2.png");
+    background-image: url("../Images/volunteer2.png");
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: fixed;

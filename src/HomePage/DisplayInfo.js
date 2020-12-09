@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {TokenContext} from '../token-context';
-import needHelpGraphic from './needHelp.png';
-import helpingHandGraphic from './helpingHand.png';
-import safetyGraphic from './safety.png';
+import needHelpGraphic from '../Images/needHelp.png';
+import helpingHandGraphic from '../Images/helpingHand.png';
+import safetyGraphic from '../Images/safety.png';
 
 class DisplayInfo extends Component {
 

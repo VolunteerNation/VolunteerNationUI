@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Grid from '@material-ui/core/Grid';
 import BurgerMenu from './BurgerMenu';
 import NewPostControl from './NewPostControl';
-import logo from '../HomePage/logo.png';
+import logo from '../Images/logo.png';
 import './Navbar.css';
 
 class Navbar extends Component {

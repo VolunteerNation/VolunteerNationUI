@@ -6,10 +6,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import {red} from '@material-ui/core/colors';
-import Tutoring from './Tutoring.jpg';
-import Yardwork from './Yardwork.jpg';
-import FoodDelivery from './Food Delivery.jpg';
-import GroceryPickup from './Grocery Pickup.jpg';
+import Tutoring from '../Images/Tutoring.jpg';
+import Yardwork from '../Images/Yardwork.jpg';
+import FoodDelivery from '../Images/Food Delivery.jpg';
+import GroceryPickup from '../Images/Grocery Pickup.jpg';
 import CardDetailsFormDialog from '../CardDetails/CardDetailsFormDialog.js';
 
 const useStyles = makeStyles((theme) => ({

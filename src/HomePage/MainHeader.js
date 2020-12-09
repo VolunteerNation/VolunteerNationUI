@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import FormDialog from '../Registration/FormDialog';
 import LoginFormDialog from '../Login/LoginFormDialog';
 import Grid from '@material-ui/core/Grid';
-import logo from './logo.png';
+import logo from '../Images/logo.png';
 import SearchBar from './SearchBar.js';
 import Button from '@material-ui/core/Button';
 import {TokenContext} from '../token-context';
