@@ -22,13 +22,13 @@ export default class SimpleBottomNavigation extends Component {
   render() {
     const {value} = this.state.value;
     return (
-      <Grid container spacing = {3} justify = "center">
-        <Grid item xs = {12}>
+      <Grid container spacing={3} justify="center">
+        <Grid item xs={12}>
           <BottomNavigation
             value={value}
             onChange={this.handleChange}
             showLabels
-            >
+          >
             <BottomNavigationAction label="How can I get help?" icon={<InfoIcon/>} value="1"/>
             <BottomNavigationAction label="How can I be a volunteer?" icon={<PersonIcon/>} value="2"/>
             <BottomNavigationAction label="How can I stay safe?" icon={<WarningIcon/>} value="3"/>

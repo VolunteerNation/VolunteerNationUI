@@ -276,46 +276,46 @@ class NewPostForm extends Component {
           </div>
         </Grid>
         <Grid item xs={12}>
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1bh-content"
-                id="panel1bh-header"
-              >
-                <Typography><b>Before publishing...</b></Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-              <Grid container spacing = {2}>
-            <img src={covid} alt=""/>
-            <Grid item xs = {10} style = {{paddingTop: 20}}>
-                <FormGroup>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon/>}
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
+            >
+              <Typography><b>Before publishing...</b></Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Grid container spacing={2}>
+                <img src={covid} alt=""/>
+                <Grid item xs={10} style={{paddingTop: 20}}>
+                  <FormGroup>
                     <FormControlLabel
-                        control={
+                      control={
                         <Checkbox
-                            checked={this.state.checked}
-                            onChange={this.toggleChecked}
-                            name="checked"
-                            color="primary"
-                        />                                
-                    }
-                    label="I have read and understand what precautions to take to keep myself and others safe."
+                          checked={this.state.checked}
+                          onChange={this.toggleChecked}
+                          name="checked"
+                          color="primary"
+                        />
+                      }
+                      label="I have read and understand what precautions to take to keep myself and others safe."
                     />
-                </FormGroup>
+                  </FormGroup>
                 </Grid>
-                <Grid item xs = {2} style = {{paddingTop: 20}}>
+                <Grid item xs={2} style={{paddingTop: 20}}>
                   <Button
-                        type = "submit"
-                        variant = "contained"
-                        color = "primary"
-                        fullWidth
-                        disableElevation
-                        onClick={this.publish}
-                    >Publish
-                    </Button>
-                    </Grid>
-        </Grid>
-              </AccordionDetails>
-            </Accordion>
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    disableElevation
+                    onClick={this.publish}
+                  >Publish
+                  </Button>
+                </Grid>
+              </Grid>
+            </AccordionDetails>
+          </Accordion>
         </Grid>
       </Grid>
     );

@@ -13,14 +13,14 @@ export class PostFormData extends Component {
     city: '',
     state: '',
     zipcode: '',
-    tutoring: '', 
-    delivery: '', 
-    grocery: '', 
-    time: '', 
-    status: '', 
-    contact: '', 
+    tutoring: '',
+    delivery: '',
+    grocery: '',
+    time: '',
+    status: '',
+    contact: '',
     phone: '',
-    title: '', 
+    title: '',
     textdata: ''
   };
 
@@ -40,8 +40,34 @@ export class PostFormData extends Component {
 
   render() {
     const {step} = this.state;
-    const {fname, lastinital, street, city, state, zipcode, tutoring, delivery, grocery, phone, title, textdata} = this.state;
-    const entries = {fname, lastinital, street, city, state, zipcode, tutoring, delivery, grocery, phone, title, textdata};
+    const {
+      fname,
+      lastinital,
+      street,
+      city,
+      state,
+      zipcode,
+      tutoring,
+      delivery,
+      grocery,
+      phone,
+      title,
+      textdata
+    } = this.state;
+    const entries = {
+      fname,
+      lastinital,
+      street,
+      city,
+      state,
+      zipcode,
+      tutoring,
+      delivery,
+      grocery,
+      phone,
+      title,
+      textdata
+    };
 
     switch (step) {
 

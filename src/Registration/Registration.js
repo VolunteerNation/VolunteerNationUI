@@ -48,115 +48,116 @@ export class Registration extends Component {
     this.setState({checked});
   }
 
-    render() {
-        
-        const { classes } = this.props;
-        const { values: { firstname, lastname, email, username}, handleInputChange} = this.props;
-        
-        return (
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <div className = {classes.wrapper}>
-                    <form className = {classes.form}>
-                        <Grid container spacing={2}>
-                                <Grid item xs={12} sm={6}>  
-                                    <TextField 
-                                    required id = "standard-required" 
-                                    fullWidth
-                                    label = "First name"
-                                    variant = "outlined"
-                                    onChange = { handleInputChange ('firstname') }
-                                    defaultValue = { firstname }
-                                    autoFocus
-                                    />
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
-                                    <TextField 
-                                    required id = "standard-required" 
-                                    label = "Last name"
-                                    variant = "outlined"
-                                    onChange = { handleInputChange ('lastname') }
-                                    defaultValue = { lastname }
-                                />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <TextField 
-                                    required id = "standard-required" 
-                                    fullWidth
-                                    label = "E-mail address"
-                                    variant = "outlined"
-                                    onChange = { handleInputChange ('email') }
-                                    defaultValue = { email }
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>  
-                                    <TextField 
-                                    required id = "standard-required" 
-                                    fullWidth
-                                    label = "Username"
-                                    variant = "outlined"
-                                    onChange = { handleInputChange ('username') }
-                                    defaultValue = { username }
-                                    />
-                                </Grid>
-                                <Grid item xs={12} sm = {6}>
-                                    <TextField
-                                        variant="outlined"
-                                        required
-                                        name="password"
-                                        label="Password"
-                                        type="password"
-                                        id="password"
-                                        onChange = { handleInputChange ('password') }
-                                        InputProps={{
-                                            endAdornment: (
-                                              <InputAdornment position="end">
-                                              </InputAdornment>
-                                            ),
-                                          }}
-                                        autoComplete="current-password"
-                                    />
-                                </Grid>
-                                <Grid item xs={12} sm = {6}>
-                                    <TextField
-                                        variant="outlined"
-                                        required
-                                        name="password"
-                                        label="Confirm Password"
-                                        type="password"
-                                        id="password"
-                                        onChange = { handleInputChange ('password2') }
-                                        autoComplete="current-password"
-                                    />
-                                </Grid>
-                                <Grid item xs = {12}>
-                                    <Typography variant = "subtitle">Password must contain at least one special character and one capital letter.</Typography>
-                                </Grid>
-                            <Grid item xs = {9}>
-                                <h4><b>Are you over the age of 18?</b></h4>
-                            </Grid>
-                            <Grid item xs = {3}>
-                                <FormControlLabel
-                                    control={<Switch size="small" checked={this.state.checked} onChange={this.toggleChecked} />}
-                                    labelPlacement="start"
-                                    />
-                            </Grid>
-                            </Grid>
-                            <Button className = {this.state.checked ? classes.submit : classes.hidden}
-                                type = "submit"
-                                variant = "contained"
-                                color = "primary"
-                                fullWidth
-                                primary = {true}
-                                disableElevation
-                                onClick = {this.continue}
-                            >Continue
-                            </Button>
-                    </form>
-                </div>
-            </Container>
-        );
-    }
+  render() {
+
+    const {classes} = this.props;
+    const {values: {firstname, lastname, email, username}, handleInputChange} = this.props;
+
+    return (
+      <Container component="main" maxWidth="xs">
+        <CssBaseline/>
+        <div className={classes.wrapper}>
+          <form className={classes.form}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required id="standard-required"
+                  fullWidth
+                  label="First name"
+                  variant="outlined"
+                  onChange={handleInputChange('firstname')}
+                  defaultValue={firstname}
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required id="standard-required"
+                  label="Last name"
+                  variant="outlined"
+                  onChange={handleInputChange('lastname')}
+                  defaultValue={lastname}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required id="standard-required"
+                  fullWidth
+                  label="E-mail address"
+                  variant="outlined"
+                  onChange={handleInputChange('email')}
+                  defaultValue={email}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required id="standard-required"
+                  fullWidth
+                  label="Username"
+                  variant="outlined"
+                  onChange={handleInputChange('username')}
+                  defaultValue={username}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  variant="outlined"
+                  required
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  onChange={handleInputChange('password')}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                      </InputAdornment>
+                    ),
+                  }}
+                  autoComplete="current-password"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  variant="outlined"
+                  required
+                  name="password"
+                  label="Confirm Password"
+                  type="password"
+                  id="password"
+                  onChange={handleInputChange('password2')}
+                  autoComplete="current-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="subtitle">Password must contain at least one special character and one capital
+                  letter.</Typography>
+              </Grid>
+              <Grid item xs={9}>
+                <h4><b>Are you over the age of 18?</b></h4>
+              </Grid>
+              <Grid item xs={3}>
+                <FormControlLabel
+                  control={<Switch size="small" checked={this.state.checked} onChange={this.toggleChecked}/>}
+                  labelPlacement="start"
+                />
+              </Grid>
+            </Grid>
+            <Button className={this.state.checked ? classes.submit : classes.hidden}
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    primary={true}
+                    disableElevation
+                    onClick={this.continue}
+            >Continue
+            </Button>
+          </form>
+        </div>
+      </Container>
+    );
+  }
 }
 
 Registration.contextType = TokenContext;

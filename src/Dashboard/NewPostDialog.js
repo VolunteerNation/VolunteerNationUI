@@ -7,8 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import { withStyles } from '@material-ui/core/styles';
-import { NewPostForm } from './NewPostForm';
+import {withStyles} from '@material-ui/core/styles';
+import {NewPostForm} from './NewPostForm';
 
 
 const styles = (theme) => ({
@@ -66,26 +66,28 @@ export default function FormDialog() {
     setOpen(false);
   };
 
-    return (
-        <div>
-          <Button variant="contained" color="secondary" onClick={handleClickOpen('body')}>
-          New Post
-          </Button>
-          <Dialog 
-              fullWidth={true}
-              maxWidth = {'md'}
-              scroll={scroll}
-              open={open} 
-              onClose={handleClose} 
-              aria-labelledby="form-dialog-title" 
-              TransitionComponent={Transition}>
+  return (
+    <div>
+      <Button variant="contained" color="secondary" onClick={handleClickOpen('body')}>
+        New Post
+      </Button>
+      <Dialog
+        fullWidth={true}
+        maxWidth={'md'}
+        scroll={scroll}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+        TransitionComponent={Transition}>
 
-            <DialogTitle onClose={handleClose}><div>
-              <Typography component="h1" variant="h5">Create New Post</Typography></div></DialogTitle>
-            <DialogContent dividers>
-            <NewPostForm onClickPublish={handleClose}/>
-            </DialogContent>
-          </Dialog>
+        <DialogTitle onClose={handleClose}>
+          <div>
+            <Typography component="h1" variant="h5">Create New Post</Typography></div>
+        </DialogTitle>
+        <DialogContent dividers>
+          <NewPostForm onClickPublish={handleClose}/>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
