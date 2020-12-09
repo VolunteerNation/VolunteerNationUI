@@ -38,14 +38,13 @@ export class COVIDConfirm extends Component {
   state = {
     checked: false
   }
-  toggleChecked = this.toggleChecked.bind(this);
 
   continue = event => {
     event.preventDefault();
     this.props.nextStep();
   }
 
-  toggleChecked(checked) {
+  toggleChecked = (checked) => {
     this.setState({checked});
   }
 

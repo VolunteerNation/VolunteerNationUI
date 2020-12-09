@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
 import {API_HOST, AUTH_HEADERS} from "../Util/util";

@@ -67,7 +67,7 @@ export default function FormDialog() {
 
   return (
     <div>
-      <Button variant="contained" style={{width: 165}}color="secondary" onClick={handleClickOpen('body')}>
+      <Button variant="contained" style={{width: 165}} color="secondary" onClick={handleClickOpen('body')}>
         Create Request
       </Button>
       <Dialog

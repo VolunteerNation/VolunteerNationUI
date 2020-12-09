@@ -84,9 +84,8 @@ export class PostAttributes extends Component {
     value: 0,
     checked: false
   }
-  toggleChecked = this.toggleChecked.bind(this);
 
-  toggleChecked(checked) {
+  toggleChecked = (checked) => {
     this.setState({checked});
   }
 

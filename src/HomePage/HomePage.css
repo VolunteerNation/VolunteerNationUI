@@ -34,7 +34,7 @@
     background-image: url("../Images/volunteer2.png");
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: fixed;
+    background-attachment: fixed;
     background-color: #50aaaa;
 }
 
