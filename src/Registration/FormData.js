@@ -4,7 +4,7 @@ import Confirmation from './Confirmation';
 import RegResult from './RegResult';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
-import {API_host} from "../util";
+import {API_host} from "../Util/util";
 
 export class FormData extends Component {
 

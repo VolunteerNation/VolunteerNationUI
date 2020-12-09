@@ -8,6 +8,9 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import Tutoring from '../Card/Tutoring.jpg'
+import Yardwork from '../Card/Yardwork.jpg';
+import FoodDelivery from '../Card/Food Delivery.jpg';
+import GroceryPickup from '../Card/Grocery Pickup.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,9 +44,17 @@ export default function RecipeReviewCard(props) {
     setExpanded(!expanded);
   };
 
-  if(props.category === "Tutoring") {
-      console.log("hello");
-      img = Tutoring;
+  if (props.category === "Tutoring") {
+    img = Tutoring;
+  }
+  if (props.category === "Yardwork") {
+    img = Yardwork;
+  }
+  if (props.category === "Grocery Pickup") {
+    img = GroceryPickup;
+  }
+  if (props.category === "Food Delivery") {
+    img = FoodDelivery;
   }
 
   return (
@@ -62,11 +73,42 @@ export default function RecipeReviewCard(props) {
         image={img}
         title={props.category}
       />
+      <CardContent>
+        <Typography paragraph>
+          {props.description}
+        </Typography>
+        {(props.volunteer !== 'null' ? <Typography>Volunteer: {props.volunteer}</Typography> : "")}
+      </CardContent>
+      {/* <CardContent>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {props.description}
+        </Typography>
+      </CardContent> */}
+      {/* <CardActions disableSpacing> */}
+      {/* <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton> */}
+      {/* <IconButton
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded,
+          })}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </IconButton>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>
             {props.description}
           </Typography>
         </CardContent>
+      </Collapse> */}
     </Card>
   );
 }

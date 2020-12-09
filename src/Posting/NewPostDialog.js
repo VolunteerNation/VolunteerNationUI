@@ -12,59 +12,59 @@ import { PostFormData } from './PostFormData';
 
 
 const styles = (theme) => ({
-    root: {
-      margin: 0,
-      padding: theme.spacing(2),
-    },
-    closeButton: {
-      position: 'absolute',
-      right: theme.spacing(1),
-      top: theme.spacing(1),
-      color: theme.palette.grey[500],
-    },
-    avatar: {
-      margin: theme.spacing(2),
-      backgroundColor: theme.palette.secondary.main,
-    },
-  });
-  
-  const DialogTitle = withStyles(styles)((props) => {
-    const { children, classes, onClose, ...other } = props;
-    return (
-      <MuiDialogTitle disableTypography className={classes.root} {...other}>
-        <Typography variant="h6">{children}</Typography>
-        {onClose ? (
-          <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-            <CloseIcon />
-          </IconButton>
-        ) : null}
-      </MuiDialogTitle>
-    );
-  });
-  
-  const DialogContent = withStyles((theme) => ({
-    root: {
-      padding: theme.spacing(2),
-    },
-  }))(MuiDialogContent);
-  
-  const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-  });
+  root: {
+    margin: 0,
+    padding: theme.spacing(2),
+  },
+  closeButton: {
+    position: 'absolute',
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
+  },
+  avatar: {
+    margin: theme.spacing(2),
+    backgroundColor: theme.palette.secondary.main,
+  },
+});
+
+const DialogTitle = withStyles(styles)((props) => {
+  const {children, classes, onClose, ...other} = props;
+  return (
+    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+      <Typography variant="h6">{children}</Typography>
+      {onClose ? (
+        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+          <CloseIcon/>
+        </IconButton>
+      ) : null}
+    </MuiDialogTitle>
+  );
+});
+
+const DialogContent = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiDialogContent);
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 
 export default function FormDialog() {
-    const [open, setOpen] = React.useState(false);
-    const [scroll, setScroll] = React.useState('paper');
-  
-    const handleClickOpen = (scrollType) => () => {
-      setOpen(true);
-      setScroll(scrollType);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
+  const [open, setOpen] = React.useState(false);
+  const [scroll, setScroll] = React.useState('paper');
+
+  const handleClickOpen = (scrollType) => () => {
+    setOpen(true);
+    setScroll(scrollType);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
     return (
         <div>
@@ -87,5 +87,5 @@ export default function FormDialog() {
             </DialogContent>
           </Dialog>
     </div>
-    );
+  );
 }

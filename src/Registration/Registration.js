@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Switch from 'react-switch';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
@@ -6,50 +6,47 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import {TokenContext} from '../token-context';
 
 const styles = theme => ({
-    wrapper: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    form: {
-      width: '100%',
-      marginTop: theme.spacing(3),
-    },
-    submit: {
-        justifyContent: "center",
-      margin: theme.spacing(3, 0, 2)
-    },
-    hidden: {
-        display: "none"
-    }
-  });
+  wrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  form: {
+    width: '100%',
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    justifyContent: "center",
+    margin: theme.spacing(3, 0, 2)
+  },
+  hidden: {
+    display: "none"
+  }
+});
 
 export class Registration extends Component {
-    state = {
-        checked: false
-    }
+  state = {
+    checked: false
+  }
+  continue = event => {
+    event.preventDefault();
+    this.props.nextStep();
+  }
 
-    continue = event => {
-        event.preventDefault();
-        this.props.nextStep();
-    }
+  back = event => {
+    event.preventDefault();
+    this.props.prevStep();
+  }
 
-    back = event => {
-        event.preventDefault();
-        this.props.prevStep();
-    }
-
-    toggleChecked(checked) {
-        this.setState({ checked });
-    }
-
-    toggleChecked = this.toggleChecked.bind(this);
+  toggleChecked = (checked) => {
+    this.setState({checked});
+  }
 
     render() {
         
@@ -161,6 +158,7 @@ export class Registration extends Component {
         );
     }
 }
+
 Registration.contextType = TokenContext;
 
-export default withStyles ( styles, {withTheme: true}) (Registration);
+export default withStyles(styles, {withTheme: true})(Registration);

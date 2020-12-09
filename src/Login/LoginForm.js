@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {TokenContext} from '../token-context';
 
@@ -43,8 +43,8 @@ export class LoginForm extends Component {
   }
 
   render() {
-    const { classes } = this.props;
-    const { handleInputChange } = this.props;
+    const {classes} = this.props;
+    const {handleInputChange} = this.props;
 
     return (
       <Container component="main" maxWidth="xs">

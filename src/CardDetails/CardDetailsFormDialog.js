@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import CardDetails from './CardDetails';
 import Button from '@material-ui/core/Button';
 /* import TextField from '@material-ui/core/TextField'; */
@@ -9,7 +9,11 @@ import Dialog from '@material-ui/core/Dialog';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
+import axios from 'axios';
+import {API_host} from "../Util/util";
+import {read_cookie} from 'sfcookies';
+import {TokenContext} from '../token-context';
 
 const styles = (theme) => ({
   root: {
@@ -29,13 +33,13 @@ const styles = (theme) => ({
 });
 
 const DialogTitle = withStyles(styles)((props) => {
-  const { children, classes, onClose, ...other } = props;
+  const {children, classes, onClose, ...other} = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <Typography variant="h6">{children}</Typography>
       {onClose ? (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-          <CloseIcon />
+          <CloseIcon/>
         </IconButton>
       ) : null}
     </MuiDialogTitle>
@@ -56,6 +60,8 @@ export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState('paper');
 
+  const context_update = useContext(TokenContext);
+
   const handleClickOpen = (scrollType) => () => {
     setOpen(true);
     setScroll(scrollType);
@@ -65,17 +71,43 @@ export default function FormDialog(props) {
     setOpen(false);
   };
 
+  // const data = {};
+
+  const handleClickVolunteer = () => {
+    console.log("Volunteer button clicked");
+    // console.log(read_cookie('vntToken'));
+
+    const data = {
+      id: props.postId
+    }
+
+    axios.post(`${API_host}/vnt_post/volunteer`, data, {headers: {"auth-token": read_cookie('vntToken')}})
+      .then(response => {
+        console.log(response.data);
+        console.log('about to try update volunteered');
+        context_update.updateVolunteered();
+      })
+      .catch(error => {
+        console.log(error.response);
+      });
+  }
+
   return (
     <div>
       <Button variant="contained" color="secondary" onClick={handleClickOpen('body')}>
-      Show More
+        Show More
       </Button>
-      <Dialog 
-      scroll={scroll}
-      open={open} 
-      onClose={handleClose} 
-      aria-labelledby="form-dialog-title" 
-      TransitionComponent={Transition}>
+      {((props.volunteer === "null" && props.viewingOn !== 'dashboard') ?
+        <Button style={{marginLeft: 5}} variant="contained" color="secondary" onClick={() => handleClickVolunteer()}>
+          Become Volunteer
+        </Button> : ((props.viewingOn === "dashboard" && props.volunteer !== "null") ?
+          <Typography paragraph style={{float: 'right', marginLeft: 40}}>Volunteer Found!</Typography> : <div></div>))}
+      <Dialog
+        scroll={scroll}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+        TransitionComponent={Transition}>
 
         {/* <DialogTitle onClose={handleClose}>
         <div>
@@ -83,9 +115,9 @@ export default function FormDialog(props) {
           <Typography component="h2" variant="h5">{`${props.category} in ${props.city}, ${props.state}`}</Typography>
         </div></DialogTitle> */}
         <DialogContent dividers>
-        <Typography gutterBottom>
-        </Typography>
-        <CardDetails {...props}/>
+          <Typography gutterBottom>
+          </Typography>
+          <CardDetails {...props}/>
         </DialogContent>
       </Dialog>
     </div>
