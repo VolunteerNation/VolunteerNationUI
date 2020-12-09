@@ -3,21 +3,20 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
-import {API_host} from "../Util/util";
+import {API_host, authHeaders} from "../Util/util";
 import Navbar from './Navbar';
 import Card from '../Card/Card.js';
 import './Dashboard.css';
-import {read_cookie} from 'sfcookies';
 
 export default function Dashboard() {
   const [list, setList] = useState([]);
   const context_update = useContext(TokenContext);
 
   useEffect(() => {
-    axios.get(`${API_host}/vnt_post/my_posts`, {headers: {"auth-token": read_cookie('vntToken')}}).then(response => setList(response.data));
-    // },[context_update.postsCreated, read_cookie('vntToken')]);
+    axios.get(`${API_host}/vnt_post/my_posts`, {headers: authHeaders}).then(response => setList(response.data));
+    // },[context_update.postsCreated, read_cookie('vntTokenCookie')]);
   }, [context_update.postsCreated]);
-  // },[context_update.postsCreated, read_cookie('vntToken')]);
+  // },[context_update.postsCreated, read_cookie('vntTokenCookie')]);
 
   return (
     <div className="Dashboard">

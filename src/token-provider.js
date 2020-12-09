@@ -1,6 +1,7 @@
 import {TokenContext} from './token-context';
 import React from 'react';
 import {bake_cookie, delete_cookie, read_cookie} from 'sfcookies';
+import {vntTokenCookie} from "./Util/util";
 
 class TokenProvider extends React.Component {
   state = {
@@ -45,7 +46,7 @@ class TokenProvider extends React.Component {
     this.setState({regsuccess: true});
     let msg = newUsername + ' has been registered.';
     this.setState({responseMessage: msg});
-    const cookie_key = 'vntToken';
+    const cookie_key = vntTokenCookie;
     bake_cookie(cookie_key, newToken);
   }
 
@@ -54,14 +55,14 @@ class TokenProvider extends React.Component {
     this.setState({loginsuccess: true});
     let msg = "Login Successful";
     this.setState({loginMessage: msg});
-    const cookie_key = 'vntToken';
+    const cookie_key = vntTokenCookie;
     bake_cookie(cookie_key, token);
     // console.log("cookie baked: ");
     // console.log(read_cookie(cookie_key));
   }
 
   logout = () => {
-    const cookie_key = 'vntToken';
+    const cookie_key = vntTokenCookie;
     console.log('logging out')
     console.log("cookie read: ");
     console.log(read_cookie(cookie_key));

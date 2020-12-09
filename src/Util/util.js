@@ -1,3 +1,5 @@
+import {read_cookie} from "sfcookies";
+
 const API_LOCALHOST = false;
 
 export const API_host = function () {
@@ -11,3 +13,5 @@ export const API_host = function () {
   }
 
 }()
+export const vntTokenCookie = 'vntToken';
+export const authHeaders = {"auth-token": read_cookie(vntTokenCookie)};
