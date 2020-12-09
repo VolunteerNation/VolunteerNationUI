@@ -53,7 +53,7 @@ export default function CustomizedMenus(props) {
   };
 
   return (
-    <div class="HamburgerMenu">
+    <div className="HamburgerMenu">
       <Button
         aria-controls="customized-menu"
         aria-haspopup="true"
