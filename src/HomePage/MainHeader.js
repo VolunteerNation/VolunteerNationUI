@@ -6,13 +6,11 @@ import logo from './logo.png';
 import SearchBar from './SearchBar.js';
 import Button from '@material-ui/core/Button';
 import {TokenContext} from '../token-context';
-import {read_cookie} from 'sfcookies';
 
 class MainHeader extends Component {
 
   displayButtons = () => {
-    if ((read_cookie('vntToken')).length < 1) {
-      // if (false) {
+    if (this.context.token === null) {
       return (
         <Grid container spacing={4}>
           <Grid item xs={12} sm={6}>
