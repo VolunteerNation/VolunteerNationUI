@@ -15,9 +15,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     axios.get(`${API_host}/vnt_post/my_posts`, {headers: {"auth-token": read_cookie('vntToken')}}).then(response => setList(response.data));
-    // },[context_update.postsCreated, read_cookie('vntToken')]);
   }, [context_update.postsCreated]);
-  // },[context_update.postsCreated, read_cookie('vntToken')]);
 
   return (
     <div className="Dashboard">

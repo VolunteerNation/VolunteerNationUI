@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup'
 import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography'
@@ -186,32 +187,16 @@ class NewPostForm extends Component {
                 <Typography>Poster Details</Typography>
               </AccordionSummary>
               <TextField
-                label="First Name"
+                label="First name"
                 variant="filled"
                 fullWidth="true"
                 onChange={this.handleInputChange('firstName')}
               />
               <TextField
-                label="Last Name"
+                label="Last name"
                 variant="filled"
                 fullWidth="true"
                 onChange={this.handleInputChange('lastName')}
-              />
-              <AccordionSummary className="rootv2">
-                <Typography><i>Communication Method</i></Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <FormControl component="fieldset">
-                  <RadioGroup aria-label="contact" name="customized-radios">
-                    <FormControlLabel value="phone" control={<Radio color="primary"/>} label="In Person"/>
-                    <FormControlLabel value="throughapp" control={<Radio color="primary"/>} label="Contact-free"/>
-                  </RadioGroup>
-                </FormControl>
-              </AccordionDetails>
-              <TextField
-                label="Phone number"
-                variant="filled"
-                fullWidth="true"
               />
               <TextField
                 label="City"
@@ -225,6 +210,22 @@ class NewPostForm extends Component {
                 fullWidth="true"
                 onChange={this.handleInputChange('state')}
               />
+              <TextField
+                label="Phone number"
+                variant="filled"
+                fullWidth="true"
+              />
+              <AccordionSummary className="rootv2">
+                <Typography><i>Communication Method</i></Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <FormControl component="fieldset">
+                  <RadioGroup aria-label="contact" name="customized-radios">
+                    <FormControlLabel value="phone" control={<Radio color="primary"/>} label="In Person"/>
+                    <FormControlLabel value="throughapp" control={<Radio color="primary"/>} label="Contact-free"/>
+                  </RadioGroup>
+                </FormControl>
+              </AccordionDetails>
             </Accordion>
 
             <Accordion>
@@ -272,45 +273,49 @@ class NewPostForm extends Component {
               </AccordionDetails>
             </Accordion>
 
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1bh-content"
-                id="panel1bh-header"
-              >
-                <Typography>COVID-19 Safety</Typography>
-              </AccordionSummary>
-
-            </Accordion>
           </div>
         </Grid>
         <Grid item xs={12}>
-          <Paper elevation={0} variant="outlined" className={classes.paper}>
             <Accordion>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon/>}
                 aria-controls="panel1bh-content"
                 id="panel1bh-header"
               >
-                <Typography><b>COVID-19 Safety Regulations</b></Typography>
+                <Typography><b>Before publishing...</b></Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <img src={covid} alt="" className={classes.covid}/>
-              </AccordionDetails>
-              <AccordionDetails>
-                <form className={classes.container} Validate>
-                  <Checkbox/>
-                  <Typography>Please acknowledge that you have read and
-                    understand the guidelines for COVID-19 Safety as depicted in the graphic.
-                  </Typography>
-                </form>
+              <Grid container spacing = {2}>
+            <img src={covid} alt=""/>
+            <Grid item xs = {10} style = {{paddingTop: 20}}>
+                <FormGroup>
+                    <FormControlLabel
+                        control={
+                        <Checkbox
+                            checked={this.state.checked}
+                            onChange={this.toggleChecked}
+                            name="checked"
+                            color="primary"
+                        />                                
+                    }
+                    label="I have read and understand what precautions to take to keep myself and others safe."
+                    />
+                </FormGroup>
+                </Grid>
+                <Grid item xs = {2} style = {{paddingTop: 20}}>
+                  <Button
+                        type = "submit"
+                        variant = "contained"
+                        color = "primary"
+                        fullWidth
+                        disableElevation
+                        onClick={this.publish}
+                    >Publish
+                    </Button>
+                    </Grid>
+        </Grid>
               </AccordionDetails>
             </Accordion>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={12}>
-          <Button variant="contained" color="primary" onClick={this.publish}>Publish</Button>
         </Grid>
       </Grid>
     );

@@ -58,7 +58,7 @@ export default function RecipeReviewCard(props) {
   }
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} elevation = {0}>
       <CardHeader
         avatar={
           <Avatar aria-label="requester" className={classes.avatar}>
@@ -79,36 +79,6 @@ export default function RecipeReviewCard(props) {
         </Typography>
         {(props.volunteer !== 'null' ? <Typography>Volunteer: {props.volunteer}</Typography> : "")}
       </CardContent>
-      {/* <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {props.description}
-        </Typography>
-      </CardContent> */}
-      {/* <CardActions disableSpacing> */}
-      {/* <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton> */}
-      {/* <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>
-            {props.description}
-          </Typography>
-        </CardContent>
-      </Collapse> */}
     </Card>
   );
 }

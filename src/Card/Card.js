@@ -36,13 +36,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RecipeReviewCard(props) {
+  
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
   let img = null;
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   if (props.category === "Tutoring") {
     img = Tutoring;
@@ -65,11 +61,6 @@ export default function RecipeReviewCard(props) {
             {props.name.charAt(0)}
           </Avatar>
         }
-        // action={
-        //   <IconButton aria-label="settings">
-        //     <MoreVertIcon/>
-        //   </IconButton>
-        // }
         title={`${props.category} in ${props.city}, ${props.state}`}
         subheader={props.date}
       />
@@ -78,37 +69,9 @@ export default function RecipeReviewCard(props) {
         image={img}
         title={props.category}
       />
-      {/* <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {props.description}
-        </Typography>
-      </CardContent> */}
       <CardActions disableSpacing>
-        {/* <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton> */}
         <CardDetailsFormDialog {...props}/>
-        {/* <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton> */}
       </CardActions>
-      {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>
-            {props.description}
-          </Typography>
-        </CardContent>
-      </Collapse> */}
     </Card>
   );
 }

@@ -6,7 +6,6 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from 'react-router-dom';
-// import './HamburgerMenu.css';
 
 const StyledMenu = withStyles({
   paper: {
@@ -15,7 +14,6 @@ const StyledMenu = withStyles({
 })
 ((props) => (
   <Menu
-    elevation={0}
     getContentAnchorEl={null}
     anchorOrigin={{
       vertical: 'bottom',
@@ -53,12 +51,11 @@ export default function CustomizedMenus(props) {
   };
 
   return (
-    <div class="HamburgerMenu">
+    <div className="HamburgerMenu">
       <Button
+        disableElevation
         aria-controls="customized-menu"
         aria-haspopup="true"
-        variant="contained"
-        color="primary"
         onClick={handleClick}
       >
         <MenuIcon/>

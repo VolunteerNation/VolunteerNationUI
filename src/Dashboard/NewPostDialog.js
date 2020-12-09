@@ -8,7 +8,7 @@ import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import { withStyles } from '@material-ui/core/styles';
-import { PostFormData } from './PostFormData';
+import { NewPostForm } from './NewPostForm';
 
 
 const styles = (theme) => ({
@@ -83,7 +83,7 @@ export default function FormDialog() {
             <DialogTitle onClose={handleClose}><div>
               <Typography component="h1" variant="h5">Create New Post</Typography></div></DialogTitle>
             <DialogContent dividers>
-              <PostFormData/>
+            <NewPostForm onClickPublish={handleClose}/>
             </DialogContent>
           </Dialog>
     </div>
