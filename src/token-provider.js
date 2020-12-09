@@ -41,13 +41,13 @@ class TokenProvider extends React.Component {
   }
 
   handleNewToken = (newToken, newUsername) => {
-    this.setState({token: newToken});
-    this.setState({username: newUsername});
-    this.setState({regsuccess: true});
+    // this.setState({token: newToken});
+    // this.setState({username: newUsername});
+    // this.setState({regsuccess: true});
     let msg = newUsername + ' has been registered.';
     this.setState({responseMessage: msg});
-    const cookie_key = VNT_TOKEN_COOKIE;
-    bake_cookie(cookie_key, newToken);
+    // const cookie_key = VNT_TOKEN_COOKIE;
+    // bake_cookie(cookie_key, newToken);
   }
 
   handleLogin = (token, callback) => {
