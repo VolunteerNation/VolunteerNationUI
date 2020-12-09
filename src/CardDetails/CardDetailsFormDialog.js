@@ -7,8 +7,7 @@ import MuiDialogContent from '@material-ui/core/DialogContent';
 import Slide from '@material-ui/core/Slide';
 import {withStyles} from '@material-ui/core/styles';
 import axios from 'axios';
-import {API_host} from "../Util/util";
-import {read_cookie} from 'sfcookies';
+import {API_HOST, AUTH_HEADERS} from "../Util/util";
 import {TokenContext} from '../token-context';
 
 const DialogContent = withStyles((theme) => ({
@@ -43,7 +42,7 @@ export default function FormDialog(props) {
       id: props.postId
     }
 
-    axios.post(`${API_host}/vnt_post/volunteer`, data, {headers: {"auth-token": read_cookie('vntToken')}})
+    axios.post(`${API_HOST}/vnt_post/volunteer`, data, {headers: AUTH_HEADERS})
       .then(response => {
         console.log(response.data);
         console.log('about to try update volunteered');

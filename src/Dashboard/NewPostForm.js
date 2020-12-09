@@ -20,7 +20,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
-import {API_host} from "../Util/util";
+import {API_HOST, AUTH_HEADERS, VNT_TOKEN_COOKIE} from "../Util/util";
 import covid from './covid.jpg';
 import {read_cookie} from 'sfcookies';
 
@@ -111,9 +111,9 @@ class NewPostForm extends Component {
       };
 
       console.log("testing token for post submission:");
-      console.log(read_cookie('vntToken'));
+      console.log(read_cookie(VNT_TOKEN_COOKIE));
 
-      axios.post(`${API_host}/vnt_post/create`, data, {headers: {"auth-token": read_cookie('vntToken')}},)
+      axios.post(`${API_HOST}/vnt_post/create`, data, {headers: AUTH_HEADERS},)
         .then(response => {
           console.log(response.data);
           this.context.updatePostsCreated();
