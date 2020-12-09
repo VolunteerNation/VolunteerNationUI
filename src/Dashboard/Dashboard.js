@@ -12,7 +12,7 @@ export default function Dashboard() {
   const context_update = useContext(TokenContext);
 
   useEffect(() => {
-    axios.get(`${API_HOST}/vnt_post/my_posts`, {headers: AUTH_HEADERS}).then(response => setList(response.data));
+    axios.get(`${API_HOST}/vnt_post/my_posts`, {headers: AUTH_HEADERS()}).then(response => setList(response.data));
     // },[context_update.postsCreated, read_cookie(VNT_TOKEN_COOKIE)]);
   }, [context_update.postsCreated]);
   // },[context_update.postsCreated, read_cookie(VNT_TOKEN_COOKIE)]);

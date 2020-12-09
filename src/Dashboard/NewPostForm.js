@@ -113,7 +113,7 @@ class NewPostForm extends Component {
       console.log("testing token for post submission:");
       console.log(read_cookie(VNT_TOKEN_COOKIE));
 
-      axios.post(`${API_HOST}/vnt_post/create`, data, {headers: AUTH_HEADERS},)
+      axios.post(`${API_HOST}/vnt_post/create`, data, {headers: AUTH_HEADERS()},)
         .then(response => {
           console.log(response.data);
           this.context.updatePostsCreated();

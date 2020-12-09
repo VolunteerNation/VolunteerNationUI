@@ -16,4 +16,11 @@ export const API_HOST = function () {
 
 }()
 export const VNT_TOKEN_COOKIE = 'vntToken';
-export const AUTH_HEADERS = {"auth-token": read_cookie(VNT_TOKEN_COOKIE)};
+
+export const AUTH_HEADERS = function () {
+  return (
+    {
+      "auth-token": read_cookie(VNT_TOKEN_COOKIE)
+    }
+  );
+}

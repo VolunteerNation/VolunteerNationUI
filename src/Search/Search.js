@@ -13,7 +13,7 @@ export default function Search() {
   const context_update = useContext(TokenContext);
 
   useEffect(() => {
-    axios.get(`${API_HOST}/vnt_post/`, {headers: AUTH_HEADERS}).then(response => setList(response.data));
+    axios.get(`${API_HOST}/vnt_post/`, {headers: AUTH_HEADERS()}).then(response => setList(response.data));
   }, [context_update.volunteered])
 
   return (

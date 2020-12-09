@@ -42,7 +42,7 @@ export default function FormDialog(props) {
       id: props.postId
     }
 
-    axios.post(`${API_HOST}/vnt_post/volunteer`, data, {headers: AUTH_HEADERS})
+    axios.post(`${API_HOST}/vnt_post/volunteer`, data, {headers: AUTH_HEADERS()})
       .then(response => {
         console.log(response.data);
         console.log('about to try update volunteered');
