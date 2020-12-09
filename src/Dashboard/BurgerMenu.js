@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import {withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -6,6 +6,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from 'react-router-dom';
+import {TokenContext} from "../token-context";
 
 const StyledMenu = withStyles({
   paper: {
@@ -39,6 +40,8 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 export default function CustomizedMenus(props) {
+
+  const context_update = useContext(TokenContext);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -74,6 +77,11 @@ export default function CustomizedMenus(props) {
             </StyledMenuItem>
           </Link>
         )}
+        <Link to={`/`}>
+          <StyledMenuItem onClick={() => context_update.logout()}>
+            <ListItemText primary={"Logout"}/>
+          </StyledMenuItem>
+        </Link>
       </StyledMenu>
     </div>
   );
