@@ -1,23 +1,27 @@
 import React, {Component} from 'react';
-import RegResult from './RegResult';
-import axios from 'axios';
-import {TokenContext} from '../token-context';
-import {API_host} from "../util";
+import COVIDConfirm from './COVIDConfirm';
+import NewPost from './NewPost';
+import PostAttributes from './PostAttributes';
 
-export class FormData extends Component {
+export class PostFormData extends Component {
 
   state = {
     step: 1,
     firstname: '',
-    lastname: '',
-    username: '',
-    email: '',
+    lastinital: '',
     street: '',
     city: '',
     state: '',
     zipcode: '',
-    password: '',
-    password2: '',
+    tutoring: '', 
+    delivery: '', 
+    grocery: '', 
+    time: '', 
+    status: '', 
+    contact: '', 
+    phone: '',
+    title: '', 
+    textdata: ''
   };
 
   nextStep = () => {
@@ -34,60 +38,37 @@ export class FormData extends Component {
     this.setState({[input]: event.target.value});
   }
 
-  submitRegistration = () => {
-    const obj = {
-      name: this.state.username,
-      email: this.state.email,
-      password: this.state.password,
-      password2: this.state.password2
-    };
-
-    axios.post(`${API_host}/vnt_user/register`, obj)
-      .then(response => {
-        console.log(response.data);
-        console.log(this.state.username);
-        this.context.handleNewToken(response.data, this.state.username);
-      })
-      .catch(error => {
-        console.log(error.response.data[0]);
-        this.context.handleErrorMessage(error.response.data);
-      });
-  }
-
   render() {
     const {step} = this.state;
-    const {firstname, lastname, username, email, street, city, state, zipcode} = this.state;
-    const values = {firstname, lastname, username, email, street, city, state, zipcode};
+    const {fname, lastinital, street, city, state, zipcode, tutoring, delivery, grocery, phone, title, textdata} = this.state;
+    const entries = {fname, lastinital, street, city, state, zipcode, tutoring, delivery, grocery, phone, title, textdata};
 
     switch (step) {
 
       case 1:
         return (
-          <Registration
+          <COVIDConfirm
             nextStep={this.nextStep}
-            handleInputChange={this.handleInputChange}
-            values={values}
           />
         )
 
       case 2:
         return (
-          <Confirmation
+          <PostAttributes
             prevStep={this.prevStep}
             nextStep={this.nextStep}
             handleInputChange={this.handleInputChange}
-            submitRegistration={this.submitRegistration}
-            values={values}
+            values={entries}
           />
         )
 
       case 3:
         return (
-          <RegResult
+          <NewPost
             prevStep={this.prevStep}
             nextStep={this.nextStep}
             handleInputChange={this.handleInputChange}
-            values={values}
+            values={entries}
           />
         )
 
@@ -95,7 +76,5 @@ export class FormData extends Component {
     }
   }
 }
-
-FormData.contextType = TokenContext;
 
 export default FormData

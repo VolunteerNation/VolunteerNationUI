@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { withStyles } from '@material-ui/core/styles';
-import MuiAccordion from '@material-ui/core/Accordion';
-import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
-import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import covid from './covid.jpg';
-import Tabs from './Tabs';
 
 const styles = theme => ({
     paper: {
@@ -26,54 +19,30 @@ const styles = theme => ({
     },
 });
 
-const Accordion = withStyles({
-    root: {
-        border: '1px solid rgba(0, 0, 0, .125)',
-        boxShadow: 'none',
-        '&$expanded': {
-          margin: '200',
-        },
-      },
-      expanded: {},
-    })(MuiAccordion);
-  
-  const AccordionSummary = withStyles({
-    root: {
-      backgroundColor: 'rgba(0, 0, 0, .03)',
-      borderBottom: '1px solid rgba(0, 0, 0, .125)',
-      marginBottom: -1,
-      minHeight: 56,
-      '&$expanded': {
-        minHeight: 56,
-      },
-    },
-    header: {
-      backgroundColor: '#fff',
-    },
-    content: {
-      '&$expanded': {
-        margin: '12px 0',
-      },
-    },
-    expanded: {},
-  })(MuiAccordionSummary);
-  
-  const AccordionDetails = withStyles((theme) => ({
-    root: {
-      padding: theme.spacing(2),
-    },
-  }))(MuiAccordionDetails);
-
 class NewPostForm extends Component {
+
+    continue = event => {
+        event.preventDefault();
+        this.props.submitRegistration();
+        this.props.nextStep();
+    }
+
+    back = event => {
+        event.preventDefault();
+        this.props.prevStep();
+    }
 
   render() {
 
     const { classes } = this.props;
+    const {values: {title}, handleInputChange} = this.props;
 
     return (
         <Grid container spacing={2}>
             <Grid item xs={8}>
                 <TextField 
+                    onChange = { handleInputChange ('title') }
+                    defaultValue = { title }
                     id="full-width-text-field"
                     variant = "outlined"
                     fullWidth="true"
@@ -109,115 +78,25 @@ class NewPostForm extends Component {
                     } }
                 />
             </Grid>
-            <Grid item xs = {12}>
-            <Tabs/>
-            </Grid>
-                {/* <div>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-label="Expand"
-                        aria-controls="additional-actions1-content"
-                        id="additional-actions1-header"
-                        >
-                        <Typography>Poster Details</Typography>
-                        </AccordionSummary>
-                        <TextField
-                            label = "Enter First Name & Last Letter Initial"
-                            variant = "filled"
-                            fullWidth = "true"
-                        />
-                        <Location/>
-                      </Accordion>
-                      <Accordion>
-                        <AccordionSummary>
-                        <Typography>Communication Method</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                        <FormControl component="fieldset">
-                            <RadioGroup aria-label="contact" name="customized-radios">
-                                <FormControlLabel value="phone" control={<Radio color = "primary" />} label = "In Person"/>
-                                <FormControlLabel value="throughapp" control={<Radio color = "primary" />} label="Contact-free" />
-                            </RadioGroup>
-                            </FormControl>
-                        </AccordionDetails>
-                        <TextField
-                            label = "Enter Phone Number"
-                            variant = "filled"
-                            fullWidth = "true"
-                        />
-                    </Accordion>
 
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1bh-content"
-                        id="panel1bh-header"
-                        >
-                        <Typography>Post Type</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                        <FormControl component="fieldset">
-                            <FormLabel component="legend">Category</FormLabel>
-                            <RadioGroup aria-label="types" name="customized-radios">
-                                <FormControlLabel value="tutoring" control={<Radio color = "primary" />} label="Tutoring" />
-                                <FormControlLabel value="food" control={<Radio color = "primary" />} label="Food Delivery" />
-                                <FormControlLabel value="grocery" control={<Radio color = "primary" />} label="Grocery Pickup" />
-                            </RadioGroup>
-                            </FormControl>
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1bh-content"
-                        id="panel1bh-header"
-                        >
-                        <Typography>Post Availability</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                        <form className={classes.container} noValidate>
-                            <TextField
-                                id="datetime-local"
-                                label="Available starting on/at"
-                                type="datetime-local"
-                                defaultValue="2021-01-01T00:00"
-                                className={classes.textField}
-                                InputLabelProps={{
-                                shrink: true,
-                                }}
-                            />
-                        </form>
-                        </AccordionDetails>
-                    </Accordion>
-                </div>
-            </Grid> */}
-
-            <Grid item xs = {12}>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1bh-content"
-                        id="panel1bh-header"
-                        >
-                        <Typography><b>COVID-19 Safety Regulations</b></Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <img src={covid} alt="" class="center"/>
-                         </AccordionDetails>
-                        <AccordionDetails>
-                            <form className={classes.container} Validate>
-                              <Checkbox/>
-                              <Typography>I have read and understand what precautions to take to keep myself safe.
-                              </Typography>
-                            </form>
-                        </AccordionDetails>
-                    </Accordion>
-            </Grid>
-
-            <Grid item xs={12}>
-                <Button variant = "contained" color = "primary">Publish</Button>
-            </Grid>
+            <Grid item xs = {3}>
+                <Button className={classes.submit}
+                        variant="contained"
+                        color="primary"
+                        disableElevation
+                        onClick={this.continue}
+                >Confirm & Submit
+                </Button>
+              </Grid>
+              <Grid item xs = {3}>
+                <Button className={classes.submit}
+                        variant="contained"
+                        primary={false}
+                        disableElevation
+                        onClick={this.back}
+                >Make Changes
+                </Button>
+              </Grid>
         </Grid>
     );
   }
