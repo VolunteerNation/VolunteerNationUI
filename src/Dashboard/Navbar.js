@@ -18,7 +18,8 @@ class Navbar extends Component {
               <NewPostControl/>
             </Grid>
             <Grid item xs={4}>
-              <BurgerMenu pages={["Dashboard", "Search", "Profile"]}/>
+              {/* <BurgerMenu pages={["Dashboard", "Search", "Profile"]}/> */}
+              <BurgerMenu pages={["Dashboard", "Search"]}/>
             </Grid>
           </Grid>
         </div>

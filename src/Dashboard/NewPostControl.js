@@ -68,7 +68,7 @@ export default function FormDialog() {
   return (
     <div>
       <Button variant="contained" color="secondary" onClick={handleClickOpen('body')}>
-        New Post
+        Get help
       </Button>
       <Dialog
         fullWidth={true}
