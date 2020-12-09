@@ -6,13 +6,13 @@ import DisplayInfo from './DisplayInfo.js';
 import {TokenContext} from '../token-context';
 import {read_cookie} from 'sfcookies';
 import './HomePage.css';
-import {vntTokenCookie} from "../Util/util";
+import {VNT_TOKEN_COOKIE} from "../Util/util";
 
 class HomePage extends Component {
 
   componentDidMount() {
     if (this.context.token === null) {
-      const cookie_key = vntTokenCookie;
+      const cookie_key = VNT_TOKEN_COOKIE;
       const saved_token = read_cookie(cookie_key);
       if (saved_token !== undefined) {
         this.context.setToken(saved_token);

@@ -4,7 +4,7 @@ import Confirmation from './Confirmation';
 import RegResult from './RegResult';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
-import {API_host} from "../Util/util";
+import {API_HOST} from "../Util/util";
 
 export class FormData extends Component {
 
@@ -44,7 +44,7 @@ export class FormData extends Component {
       password2: this.state.password2
     };
 
-    axios.post(`${API_host}/vnt_user/register`, obj)
+    axios.post(`${API_HOST}/vnt_user/register`, obj)
       .then(response => {
         console.log(response.data);
         console.log(this.state.username);

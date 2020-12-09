@@ -3,20 +3,23 @@
 Just a Simple React and Material UI App 
 
 ## To Run Locally
-- Install `node` and `npm
+- Install `node` and `npm` with OS package manager
 
 - Clone down this repository.
-`git clone https://github.com/VolunteerNation/VolunteerNationUI`
+  - `git clone https://github.com/VolunteerNation/VolunteerNationUI`
 
 - Install local libraries
+  - `npm install`
 
-`npm install`
+- Start Server:
+  - `npm start`
 
-To Start Server:
+Browser will open automatically to `localhost:3000`  
 
-`npm start`
+By default UI points at API running at https://volunteernation-api.herokuapp.com/.
 
-Browser will open automatically to
-
-`localhost:3000`  
-
+Change `API_REMOTE_HOST` to your remote API hostname.
+> src/Util/util.js
+```js
+const API_REMOTE_HOST = 'https://volunteernation-api.herokuapp.com';
+```

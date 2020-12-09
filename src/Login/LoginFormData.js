@@ -4,7 +4,7 @@ import LoginResult from './LoginResult';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
 import {useHistory} from 'react-router-dom';
-import {API_host, vntTokenCookie} from "../Util/util";
+import {API_HOST, VNT_TOKEN_COOKIE} from "../Util/util";
 import {bake_cookie} from 'sfcookies';
 
 function LoginSuccess() {
@@ -46,11 +46,11 @@ export class LoginFormData extends Component {
       password: this.state.password
     };
 
-    axios.post(`${API_host}/vnt_user/auth`, obj)
+    axios.post(`${API_HOST}/vnt_user/auth`, obj)
       .then(response => {
         console.log(response.data);
         console.log(this.state.email);
-        const cookie_key = vntTokenCookie;
+        const cookie_key = VNT_TOKEN_COOKIE;
         bake_cookie(cookie_key, response.data);
         this.setState({success: true});
         this.context.handleLogin(response.data);

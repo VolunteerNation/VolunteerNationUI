@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import {TokenContext} from '../token-context';
-import {API_host, authHeaders} from "../Util/util";
+import {API_HOST, AUTH_HEADERS} from "../Util/util";
 import Navbar from '../Dashboard/Navbar';
 import Card from '../Card/Card.js';
 import './Search.css';
@@ -13,7 +13,7 @@ export default function Search() {
   const context_update = useContext(TokenContext);
 
   useEffect(() => {
-    axios.get(`${API_host}/vnt_post/`, {headers: authHeaders}).then(response => setList(response.data));
+    axios.get(`${API_HOST}/vnt_post/`, {headers: AUTH_HEADERS}).then(response => setList(response.data));
   }, [context_update.volunteered])
 
   return (

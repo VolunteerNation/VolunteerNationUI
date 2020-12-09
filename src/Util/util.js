@@ -2,16 +2,18 @@ import {read_cookie} from "sfcookies";
 
 const API_LOCALHOST = false;
 
-export const API_host = function () {
+const API_REMOTE_HOST = 'https://volunteernation-api.herokuapp.com';
+
+export const API_HOST = function () {
 
   if (API_LOCALHOST) {
 
     return 'http://localhost:4000';
   } else {
 
-    return 'https://volunteernation-api.herokuapp.com';
+    return API_REMOTE_HOST;
   }
 
 }()
-export const vntTokenCookie = 'vntToken';
-export const authHeaders = {"auth-token": read_cookie(vntTokenCookie)};
+export const VNT_TOKEN_COOKIE = 'vntToken';
+export const AUTH_HEADERS = {"auth-token": read_cookie(VNT_TOKEN_COOKIE)};
