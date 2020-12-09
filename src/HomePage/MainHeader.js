@@ -7,11 +7,12 @@ import SearchBar from './SearchBar.js';
 import Button from '@material-ui/core/Button';
 import {TokenContext} from '../token-context';
 import {read_cookie} from 'sfcookies';
+import {VNT_TOKEN_COOKIE} from "../Util/util";
 
 class MainHeader extends Component {
 
   displayButtons = () => {
-    if ((read_cookie('vntToken')).length < 1) {
+    if ((read_cookie(VNT_TOKEN_COOKIE)).length < 1) {
       // if (false) {
       return (
         <Grid container spacing={4}>
