@@ -11,7 +11,7 @@
     display: flex;
     margin: 150px auto;
     justify-content: center;
-    border-radius: 25px;
+    border-radius: 15px 50px;
     background: #b6e8e8;
     padding: 20px;
     align-items: center;
@@ -34,7 +34,6 @@
     background-image: url("../Images/volunteer2.png");
     background-repeat: no-repeat;
     background-size: 100%;
-    background-attachment: fixed;
     background-color: #50aaaa;
 }
 
@@ -52,11 +51,10 @@
 }
 
 .HomePage-Local {
-    margin-right: 10px;
+    margin-top: 10px;
 }
 
 .HomePage-Info {
-    /* height: 100px; */
     background: #7ecccc;
     padding: 0 25%;
     margin-top: 10px;
@@ -70,7 +68,6 @@
 
 .HomePage-InfoBlurb {
     float: left;
-    /* width: 75%; */
     padding-left: 20px;
     padding-top: 20px;
     font-size: 18px;

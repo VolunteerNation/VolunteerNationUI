@@ -137,7 +137,7 @@ class NewPostForm extends Component {
       <Grid container spacing={2}>
         <Grid item xs={8}>
           <TextField
-            id="full-width-text-field"
+            required id="standard-required"
             variant="outlined"
             fullWidth="true"
             label="Title"
@@ -187,30 +187,35 @@ class NewPostForm extends Component {
                 <Typography>Poster Details</Typography>
               </AccordionSummary>
               <TextField
+                required id="standard-required"
                 label="First name"
                 variant="filled"
                 fullWidth="true"
                 onChange={this.handleInputChange('firstName')}
               />
               <TextField
+                required id="standard-required"
                 label="Last name"
                 variant="filled"
                 fullWidth="true"
                 onChange={this.handleInputChange('lastName')}
               />
               <TextField
+                required id="standard-required"
                 label="City"
                 variant="filled"
                 fullWidth="true"
                 onChange={this.handleInputChange('city')}
               />
               <TextField
+                required id="standard-required"
                 label="State"
                 variant="filled"
                 fullWidth="true"
                 onChange={this.handleInputChange('state')}
               />
               <TextField
+                required id="standard-required"
                 label="Phone number"
                 variant="filled"
                 fullWidth="true"
@@ -237,7 +242,7 @@ class NewPostForm extends Component {
                 <Typography>Post Type</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <FormControl component="fieldset">
+                <FormControl required id="standard-required" component="fieldset">
                   <FormLabel component="legend">Category</FormLabel>
                   <RadioGroup aria-label="types" name="customized-radios" onChange={this.handleInputChange('category')}>
                     <FormControlLabel value="Tutoring" control={<Radio color="primary"/>} label="Tutoring"/>
@@ -259,7 +264,7 @@ class NewPostForm extends Component {
               <AccordionDetails>
                 <form className={classes.container} noValidate>
                   <TextField
-                    id="datetime-local"
+                    required id="standard-required"
                     label="Available starting on/at"
                     type="datetime-local"
                     defaultValue="2021-01-01T00:00"

@@ -81,8 +81,6 @@ export default function FormDialog() {
             <Typography component="h1" variant="h5">Sign-Up</Typography></div>
         </DialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>
-          </Typography>
           <FormData/>
         </DialogContent>
       </Dialog>
