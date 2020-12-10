@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {Component} from 'react';
 import FormDialog from '../Registration/FormDialog';
 import LoginFormDialog from '../Login/LoginFormDialog';
 import Grid from '@material-ui/core/Grid';
@@ -10,12 +10,14 @@ import {VNT_TOKEN_COOKIE} from "../Util/util";
 import {useHistory} from "react-router-dom";
 import AboutMenu from './AboutMenu';
 
-export default function MainHeader(props) {
-
+function GotoDashBoard() {
   const history = useHistory();
-  const context_update = useContext(TokenContext);
+  history.push("/Dashboard");
+}
 
-  const displayButtons = () => {
+class MainHeader extends Component {
+
+  displayButtons = () => {
 
     if ((read_cookie(VNT_TOKEN_COOKIE)).length < 1) {
       // if (false) {
@@ -43,7 +45,7 @@ export default function MainHeader(props) {
                 backgroundColor: "blue",
                 color: "white",
               }}
-              onClick={() => history.push("/Dashboard")}>
+              onClick={() => GotoDashBoard() }>
               Dashboard
             </Button>
           </Grid>
@@ -52,7 +54,7 @@ export default function MainHeader(props) {
                     style={{
                       backgroundColor: "#21b6ae",
                     }}
-                    onClick={() => context_update.logout()}>
+                    onClick={() => this.context.logout()}>
               Logout
             </Button>
           </Grid>
@@ -61,18 +63,23 @@ export default function MainHeader(props) {
     }
   }
 
-  return (
-    <div className="MainHeader">
-      <div className="MainHeader-Container">
-        <a href="/"><img src={logo} alt=""/></a>
-        <div className="MainHeader-Nav">
-          {displayButtons()}
+  render() {
+    return (
+      <div className="MainHeader">
+        <div className="MainHeader-Container">
+          <a href="/"><img src={logo} alt=""/></a>
+          <div className="MainHeader-Nav">
+            {this.displayButtons()}
+          </div>
         </div>
         <div className="HomePage-SearchBar">
           <h2 className="HomePage-Local">Welcome to VolunteerNation</h2>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
+MainHeader.contextType = TokenContext;
+
+export default MainHeader;

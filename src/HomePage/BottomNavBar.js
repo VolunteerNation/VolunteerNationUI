@@ -22,8 +22,8 @@ export default class SimpleBottomNavigation extends Component {
   render() {
     const {value} = this.state.value;
     return (
-      <Grid container spacing={3} justify="center">
-        <Grid item xs={12}>
+      <Grid container spacing={2} justify="center">
+        <Grid item xs>
           <BottomNavigation
             value={value}
             onChange={this.handleChange}
